@@ -1,0 +1,14 @@
+[
+    {
+        "name":"BMW",
+        "models":["x5","x6","7s"]
+    },
+    {
+        "name":"Mercedes",
+        "models":["E-class","B-class","C-class"]
+    },
+    {
+        "name":"Audi",
+        "models":["Q7","Q5","A8"]
+    }
+]
