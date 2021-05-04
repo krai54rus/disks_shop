@@ -1,0 +1,32 @@
+import React from 'react';
+import {
+    Switch,
+    Route,
+} from "react-router-dom";
+import MainPage from './pages/MainPage.js';
+import CatalogPage from './pages/CatalogPage.js';
+import ConstructorPage from './pages/ConstructorPage.js';
+import PersonalPage from './pages/PersonalPage.js';
+function Content(){
+    return(
+        <div className="content-wrapper">
+            <div className="container">
+            <Switch>
+                <Route exact path="/">
+                    <MainPage />
+                </Route>
+                <Route path="/catalog">
+                    <CatalogPage />
+                </Route>
+                <Route path="/constructor">
+                    <ConstructorPage />
+                </Route>
+                <Route path="/personal">
+                    <PersonalPage />
+                </Route>
+            </Switch>
+            </div>
+        </div>
+    )
+}
+export default Content;

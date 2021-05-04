@@ -1,8 +1,84 @@
+*{
+  box-sizing: border-box;
+}
 .App {
-  text-align: center;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
+.container{
+  max-width: 1620px;
+  margin: auto;
+}
+/* HEADER */
+.header{
+  width: 100%;
+}
+.header-items{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
+}
+.header-items__left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-items__right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* CONTENT */
+/* .content-wrapper{
+  display: ;
+} */
+
+/* Main Page */
+
+  /* Banner */
+  .main-banner {
+      display: flex;
+      height: 753px;
+      margin: 0 auto;
+  }
+  .main-banner__img {
+      width: 100%;
+      height: 753px;
+  }
+  .main-banner__img img {
+      max-width: none;
+      max-height: none;
+      width: 100%;
+      height: 100%;
+      font-family: "object-fit:cover";
+      -o-object-fit: cover;
+      object-fit: cover;
+  }
+  /* Marks */
+  
+/* FOOTER */
+.footer{
+  width: 100%;
+}
+.footer-items{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +111,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
