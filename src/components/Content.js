@@ -10,7 +10,6 @@ import PersonalPage from './pages/PersonalPage.js';
 function Content(){
     return(
         <div className="content-wrapper">
-            <div className="container">
             <Switch>
                 <Route exact path="/">
                     <MainPage />
@@ -25,7 +24,6 @@ function Content(){
                     <PersonalPage />
                 </Route>
             </Switch>
-            </div>
         </div>
     )
 }

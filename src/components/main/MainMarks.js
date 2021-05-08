@@ -2,9 +2,11 @@ import React from 'react';
 function MainMarks(props){
     return (
         <div className="main-marks">
-            <div className="main-marks__title">
-                <span>Диски для популярных моделей</span>
-            </div>
+            <div className="container">
+            <div className="main-marks-wrap">
+                <div className="main-marks__title">
+                    <span>Диски для популярных моделей</span>
+                </div>
                 <div className="main-marks__list">
                     {
                         props.marks.length > 0 &&
@@ -20,6 +22,8 @@ function MainMarks(props){
                         )
                     }
                 </div>
+            </div>
+            </div>
         </div>
     );
 }
