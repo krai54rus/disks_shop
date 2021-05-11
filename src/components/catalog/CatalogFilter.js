@@ -1,7 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 function CatalogFilter(props){
-    useEffect(()=>{
-        console.log('filter');
+    const [diskArr,getDisks] = useState([]);
+    useEffect(() => {
+        console.log('disks effect');
+        if (diskArr.length === 0) {
+            fetch('./disksmain.json')
+            .then(res=>res.json())
+            .then(res=>{
+                getDisks(res);
+                //console.log('disk',diskArr.length);
+            });
+        };
     })
     return (
         <div className="catalog-filter">
