@@ -5,8 +5,10 @@ function CatalogPage(){
     return(
         <div className="сatalog-page">
             <div className="container">
-                <CatalogFilter />
-                <CatalogSection disks={[{"name":"disk1"},{"name":"disk2"}]}/>
+                <div className="catalog-wrapper">
+                    <CatalogFilter />
+                    <CatalogSection disks={[{"name":"disk1"},{"name":"disk2"},{"name":"disk3"},{"name":"disk4"}]}/>
+                </div>
             </div>
         </div>
     )

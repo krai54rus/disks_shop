@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 function MainBanner(){
+    useEffect(() => {
+        console.log('banner effect');
+    })
     return (
         <div className="main-banner">
             <div className="main-banner__container">

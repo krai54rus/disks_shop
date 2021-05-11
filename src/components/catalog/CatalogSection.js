@@ -3,7 +3,7 @@ function CatalogSection(props){
     return (
         <div className="catalog-section">
                 <div className="catalog-disks__title">
-                    <span className="catalog-disks__title-text">Диски</span>
+                    <h1 className="catalog-disks__title-text">Диски</h1>
                     <span className="catalog-disks__title-count">Найдено: 20</span>
                 </div>
                 <div className="catalog-disks__list">
@@ -33,7 +33,7 @@ function CatalogSection(props){
                                         <span>DIA: </span>
                                         <span>106</span>
                                     </div>
-                                </div> 
+                                </div>
                             </div>
                         )
                     }

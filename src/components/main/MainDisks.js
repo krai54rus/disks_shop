@@ -1,5 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 function MainDisks(props){
+    const [diskArr,getDisks] = useState([]);
+    useEffect(() => {
+        console.log('disks effect');
+        if (diskArr.length === 0) {
+            fetch('./disksmain.json')
+            .then(res=>res.json())
+            .then(res=>{
+                getDisks(res);
+                //console.log('disk',diskArr.length);
+            });
+        };
+    })
     return (
         <div className="main-disks">
             <div className="container">
@@ -10,8 +22,8 @@ function MainDisks(props){
                 </div>
                 <div className="main-disks__list">
                     {
-                        props.disks.length > 0 &&
-                        props.disks.map((item,index)=>
+                        diskArr.length > 0 &&
+                        diskArr.map((item,index)=>
                             <div key={index} className="main-disks__list_item">
                                 <div className="main-disks__list_item-img">
                                     <img src={`./img/${item.img}`} alt=""/>

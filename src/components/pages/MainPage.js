@@ -12,36 +12,15 @@ function MainPage(){
     //     //     cleanup
     //     // };
     // }, [input]);
-    const [markArr,getMarks] = useState([]);
-    const [diskArr,getDisks] = useState([]);
     useEffect(() => {
-        console.log(markArr.length);
-        if (markArr.length === 0) {
-            fetch('./models.json')
-            .then(res=>res.json())
-            .then(res=>{
-                getMarks(res);
-                console.log('marks',res);
-            });
-        };
-        if (diskArr.length === 0) {
-            console.log('disk lenght ',diskArr.length);
-            fetch('./disksmain.json')
-            .then(res=>res.json())
-            .then(res=>{
-                getDisks(res);
-                console.log('disk',diskArr.length);
-            });
-        };
+        console.log('mainpage eff');
     })
     return(
         <div className="main-page">
             <MainBanner />
-            <MainMarks marks={markArr} />
-            <MainDisks disks={diskArr}/>
-            {/* 
+            <MainMarks />
             <MainDisks />
-            <MainBrands /> */}
+            {/* <MainBrands /> */}
         </div>
     )
 }

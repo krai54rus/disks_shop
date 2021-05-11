@@ -1,5 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 function MainMarks(props){
+    const [markArr,getMarks] = useState([]);
+    useEffect(() => {
+        console.log('marks effect');
+        if (markArr.length === 0) {
+            fetch('./models.json')
+            .then(res=>res.json())
+            .then(res=>{
+                getMarks(res);
+                //console.log('marks',res);
+            });
+        };
+    })
     return (
         <div className="main-marks">
             <div className="container">
@@ -9,8 +21,8 @@ function MainMarks(props){
                 </div>
                 <div className="main-marks__list">
                     {
-                        props.marks.length > 0 &&
-                        props.marks.map((item,index)=>
+                        markArr.length > 0 &&
+                        markArr.map((item,index)=>
                             <div key={index} className="main-marks__list_item">
                                 <div className="main-marks__list_item-img">
                                     <img src={`./img/${item.img}`} alt=""/>
