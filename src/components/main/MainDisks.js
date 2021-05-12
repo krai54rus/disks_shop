@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import {
+    Link,
+  } from "react-router-dom";
 function MainDisks(props){
     const [diskArr,getDisks] = useState([]);
     useEffect(() => {
@@ -18,7 +21,10 @@ function MainDisks(props){
             <div className="main-disks-wrap">
                 <div className="main-disks__title">
                     <span className="main-disks__title-top">Топ дисков</span>
-                    <span className="main-disks__title-link">Перейти в каталог -> </span>
+                    <Link to="/catalog" className="main-disks__title-link" >
+                        <span>Перейти в каталог</span>     
+                        <img src="./img/right-arrow.svg" alt="" /> 
+                    </Link>
                 </div>
                 <div className="main-disks__list">
                     {
