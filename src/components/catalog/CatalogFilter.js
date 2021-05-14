@@ -40,7 +40,7 @@ function CatalogFilter(props){
                                 <span>Марка</span>
                                 <img src="./img/arrow-down.svg" alt="" />
                             </div>
-                            
+
                             <div className={`catalog-filter-values ${modelFilt ? "" : "hidden"}`}>
                                 {
                                     markArr.map((item,index)=>{
@@ -76,7 +76,7 @@ function CatalogFilter(props){
                                 <span>Диаметр</span>
                                 <img src="./img/arrow-down.svg" alt="" />
                             </div>
-                            
+
                             <div className={`catalog-filter-values hidden`}>
                                 {
                                     sizeArr.map((item,index)=>{
@@ -89,10 +89,10 @@ function CatalogFilter(props){
                                 }
                             </div>
                         </div>
-                                
+
                         <div className="catalog-filter__list_item">
                             <div className="catalog-filter-name" onClick={(e) => showFilter(e)}>
-                                <span>Вылет(ET)</span>
+                                <span>Вылет (ET)</span>
                                 <img src="./img/arrow-down.svg" alt="" />
                             </div>
                             <div className="catalog-filter-values hidden">

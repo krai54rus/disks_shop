@@ -22,8 +22,8 @@ function MainDisks(props){
                 <div className="main-disks__title">
                     <span className="main-disks__title-top">Топ дисков</span>
                     <Link to="/catalog" className="main-disks__title-link" >
-                        <span>Перейти в каталог</span>     
-                        <img src="./img/right-arrow.svg" alt="" /> 
+                        <span>Перейти в каталог</span>
+                        <img src="./img/right-arrow.svg" alt="" />
                     </Link>
                 </div>
                 <div className="main-disks__list">
@@ -35,7 +35,7 @@ function MainDisks(props){
                                     <img src={`./img/${item.img}`} alt=""/>
                                 </div>
                                 <div className="main-disks__list_item-text">
-                                    <span>Диски для {item.name}</span>
+                                    <span>{item.name}</span>
                                 </div>
                             </div>
                         )

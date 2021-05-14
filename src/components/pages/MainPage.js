@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import MainBanner from '../main/MainBanner';
 import MainMarks from '../main/MainMarks';
 import MainDisks from '../main/MainDisks';
+import MainBrands from '../main/MainBrands';
 function MainPage(){
     // useEffect(() => {
     //     // effect
@@ -20,7 +21,7 @@ function MainPage(){
             <MainBanner />
             <MainMarks />
             <MainDisks />
-            {/* <MainBrands /> */}
+            <MainBrands />
         </div>
     )
 }
