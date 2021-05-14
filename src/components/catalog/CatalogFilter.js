@@ -14,6 +14,13 @@ function CatalogFilter(props){
         {name:"17"},
         {name:"18"},
     ]);
+    const [filterName,setFilterName] = useState([
+        "Марка",
+        "Модель",
+        "Диаметр",
+        "Вылет (ET)",
+        "DIA"
+    ]);
     useEffect(() => {
         console.log('filter effect');
         // if (diskArr.length === 0) {
@@ -41,7 +48,7 @@ function CatalogFilter(props){
                                 <img src="./img/arrow-down.svg" alt="" />
                             </div>
 
-                            <div className={`catalog-filter-values ${modelFilt ? "" : "hidden"}`}>
+                            <div className={`catalog-filter-values hidden ${modelFilt ? "" : "hidden"}`}>
                                 {
                                     markArr.map((item,index)=>{
                                         return(
