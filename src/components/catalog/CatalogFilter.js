@@ -1,25 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import FilterParam from './filter/FilterParam';
+import FilterAuto from './filter/FilterAuto';
 function CatalogFilter(props){
-    // const [diskArr,getDisks] = useState([]);
-    const [modelFilt,setModel] = useState(true);
-    const [markArr,setMarks] = useState([
-        {name:"BMW"},
-        {name:"Mercedes"},
-        {name:"Audi"},
-        {name:"Mazda"},
+    const [autoArr,setAuto] = useState([
+        {name:"Марка"},
+        {name:"Модель"},
     ]);
-    const [sizeArr,setSize] = useState([
-        {name:"15"},
-        {name:"16"},
-        {name:"17"},
-        {name:"18"},
-    ]);
-    const [filterName,setFilterName] = useState([
-        "Марка",
-        "Модель",
-        "Диаметр",
-        "Вылет (ET)",
-        "DIA"
+    const [paramArr,setParam] = useState([
+        {name:"Диаметр"},
+        {name:"Вылет (ET)"},
+        {name:"DIA"},
     ]);
     useEffect(() => {
         console.log('filter effect');
@@ -32,9 +22,6 @@ function CatalogFilter(props){
         //     });
         // };
     })
-    function showFilter(filtname){
-        console.log(filtname);
-    }
     return (
         <div className="catalog-filter">
                 <div className="catalog-filter__list">
@@ -42,78 +29,29 @@ function CatalogFilter(props){
                         <div className="catalog-filter__list-section_title">
                             <span>По автомобилю</span>
                         </div>
-                        <div className="catalog-filter__list_item">
-                            <div className="catalog-filter-name" onClick={() => showFilter(modelFilt)}>
-                                <span>Марка</span>
-                                <img src="./img/arrow-down.svg" alt="" />
-                            </div>
-
-                            <div className={`catalog-filter-values hidden ${modelFilt ? "" : "hidden"}`}>
-                                {
-                                    markArr.map((item,index)=>{
-                                        return(
-                                            <div key={index} className="catalog-filter-values__item">
-                                                <span>{item.name}</span>
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </div>
-
-                        <div className="catalog-filter__list_item">
-                            <div className="catalog-filter-name" onClick={(e) => showFilter(e)}>
-                                <span>Модель</span>
-                                <img src="./img/arrow-down.svg" alt="" />
-                            </div>
-                            <div className="catalog-filter-values hidden">
-                            </div>
-                        </div>
+                        {
+                            autoArr.map((item,index)=>{
+                                return (
+                                    <FilterAuto key={index} item={item}/>
+                                )
+                            })
+                        }
 
                         <div className="catalog-filter__list-section_btn">
                             <div className="filter-btn">Сбросить</div>
                         </div>
                     </div>
                     <div className="catalog-filter__list-section">
-                    <div className="catalog-filter__list-section_title">
+                        <div className="catalog-filter__list-section_title">
                             <span>По параметрам</span>
                         </div>
-                        <div className="catalog-filter__list_item">
-                            <div className="catalog-filter-name" onClick={() => showFilter(modelFilt)}>
-                                <span>Диаметр</span>
-                                <img src="./img/arrow-down.svg" alt="" />
-                            </div>
-
-                            <div className={`catalog-filter-values hidden`}>
-                                {
-                                    sizeArr.map((item,index)=>{
-                                        return(
-                                            <div key={index} className="catalog-filter-values__item">
-                                                <span>{item.name}</span>
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </div>
-
-                        <div className="catalog-filter__list_item">
-                            <div className="catalog-filter-name" onClick={(e) => showFilter(e)}>
-                                <span>Вылет (ET)</span>
-                                <img src="./img/arrow-down.svg" alt="" />
-                            </div>
-                            <div className="catalog-filter-values hidden">
-                            </div>
-                        </div>
-
-                        <div className="catalog-filter__list_item">
-                            <div className="catalog-filter-name" onClick={(e) => showFilter(e)}>
-                                <span>DIA</span>
-                                <img src="./img/arrow-down.svg" alt="" />
-                            </div>
-                            <div className="catalog-filter-values hidden">
-                            </div>
-                        </div>
+                        {
+                            paramArr.map((item,index)=>{
+                                return (
+                                    <FilterParam key={index} item={item}/>
+                                )
+                            })
+                        }
 
                         <div className="catalog-filter__list-section_btn">
                             <div className="filter-btn">Применить</div>
