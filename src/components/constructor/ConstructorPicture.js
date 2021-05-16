@@ -3,6 +3,7 @@ function ConstructorPicture(props){
     // const [diskArr,getDisks] = useState([]);
     useEffect(() => {
         console.log('constr pic effect');
+        console.log(props);
     })
     return (
         <div className="constr-pic">
@@ -24,7 +25,7 @@ function ConstructorPicture(props){
                             }
 
                             <div className="constr-img-auto">
-                                <img  src="./img/constr-mersedes-700.png" alt="" />
+                                <img src={`./img/${props.pictureModel.img}`} alt="" />
                             </div>
                         </div>
                         {

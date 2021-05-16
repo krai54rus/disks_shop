@@ -14,17 +14,21 @@ function ConstructorPage(){
         {"name":"disk4","constrImg":"constr-disk3.png","price":"6400"}
     ]);
     const [diskApp,setDiskApp] = useState({});
+    const [pictureModel,setPicModel] = useState({});
     function diskApply(disk){
         console.log(disk);
         setDiskApp(disk);
+    }
+    function setPicture(modelObj){
+        setPicModel(modelObj);
     }
     return(
         <div className="constructor-page">
             <div className="container">
                 <div className="constructor-wrapper">
                     <div className="constructor-wrapper-auto">
-                        <ConstructorFilter />
-                        <ConstructorPicture disk={diskApp}/>
+                        <ConstructorFilter setPicture={setPicture} />
+                        <ConstructorPicture pictureModel={pictureModel} disk={diskApp}/>
                     </div>
                     <div className="constructor-wrapper-disks">
                         <ConstructorDisks disks={diskArr} pickDisk={diskApply}/>
