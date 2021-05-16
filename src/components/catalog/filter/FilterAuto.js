@@ -25,15 +25,15 @@ function FilterAuto(props){
         }
     }
     return (
-        <div className="catalog-filter__list_item" onClick={() => showFilter()}>
+        <div className="catalog-filter__list_item" >
             <div className="catalog-filter-name" >
                 <span>{props.item.name}</span>
             </div>
 
             <div className='catalog-filter-values'>
                 <div className="catalog-filter-values__wrap">
-                    <div className="catalog-filter-values__select">
-                        <span className="filter-select__value">Марка</span>
+                    <div className="catalog-filter-values__select" onClick={() => showFilter()}>
+                        <span className="filter-select__value">{props.item.name}</span>
                         <img className={` ${show ? "arrow-scale" : ""}`} src="./img/arrow-down.svg" alt="" />
                     </div>
                     <div className={`catalog-filter-auto-values__list ${show ? "" : "hidden"}`}>
