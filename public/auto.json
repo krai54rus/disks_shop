@@ -5,27 +5,37 @@
             {
                 "name":"x5",
                 "img":"bmwx5.png",
-                "size":[18,20]
+                "size":[18,20],
+                "left":"24.3%",
+                "right":"65.5%"
             },
             {
                 "name":"x3",
                 "img":"bmwx3.png",
-                "size":[19]
+                "size":[19],
+                "left":"24.3%",
+                "right":"65.5%"
             },
             {
                 "name":"1 series",
                 "img":"bmw1series.png",
-                "size":[16,17,18]
+                "size":[16,17,18],
+                "left":"22.6%",
+                "right":"67.5%"
             },
             {
                 "name":"3 series",
                 "img":"bmw3series.png",
-                "size":[16,17,18]
+                "size":[16,17,18],
+                "left":"21.3%",
+                "right":"66.8%"
             },
             {
                 "name":"5 series",
                 "img":"bmw5series.png",
-                "size":[18]
+                "size":[18],
+                "left":"20.3%",
+                "right":"67.8%"
             }
         ]
     },
@@ -35,17 +45,23 @@
             {
                 "name":"E-class",
                 "img":"e-class.png",
-                "size":[17,18]
+                "size":[17,18],
+                "right":"66.5%",
+                "left":"21.3%"
             },
             {
                 "name":"C-class",
                 "img":"c-class.png",
-                "size":[16,17]
+                "size":[16,17],
+                "left":"20.5%",
+                "right":"66%"
             },
             {
                 "name":"Gle-class",
                 "img":"gle-class.png",
-                "size":[19,20]
+                "size":[19,20],
+                "left":"23.8%",
+                "right":"65.5%"
             }
         ]
     },
@@ -55,17 +71,23 @@
             {
                 "name":"CX-5",
                 "img":"cx5.png",
-                "size":[17,18,19]
+                "size":[17,18,19],
+                "left":"26.5%",
+                "right":"66.5%"
             },
             {
                 "name":"6",
                 "img":"mazda6.png",
-                "size":[16,17,18]
+                "size":[16,17,18],
+                "left":"23.1%",
+                "right":"67%"
             },
             {
                 "name":"3",
                 "img":"mazda3.png",
-                "size":[16,17]
+                "size":[16,17],
+                "left":"25%",
+                "right":"69%"
             }
         ]
     },
@@ -75,17 +97,23 @@
             {
                 "name":"Land Cruiser 200",
                 "img":"land-cruiser.png",
-                "size":[18,20]
+                "size":[18,20],
+                "left":"24.5%",
+                "right":"63.7%"
             },
             {
                 "name":"Camry",
                 "img":"camry.png",
-                "size":[16,17,18]
+                "size":[16,17,18],
+                "left":"22.5%",
+                "right":"68%"
             },
             {
                 "name":"RAV4",
                 "img":"rav4.png",
-                "size":[17,18]
+                "size":[17,18],
+                "left":"26%",
+                "right":"65%"
             }
         ]
     }

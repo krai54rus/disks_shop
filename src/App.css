@@ -19,7 +19,7 @@ a{
   min-height: 100vh;
 }
 .container{
-  max-width: 1620px;
+  max-width: 1440px;
   margin: auto;
 }
 .hidden{
@@ -443,16 +443,19 @@ a{
   position: absolute;
 }
 .disk-left{
-  left: 265px;
-  bottom: 30px;
+  /* left: 21.3%; */
+  bottom: 5.8%;
 }
 .disk-right{
-  left: 845px;
-  bottom: 30px;
+  /* left: 66.5%; */
+  bottom: 5.8%;
+}
+.constr-img-disk{
+  max-width: 8%;
 }
 .constr-img-disk img{
-  width: 110px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
 }
 .constr-pic__fon_info{
   position: absolute;

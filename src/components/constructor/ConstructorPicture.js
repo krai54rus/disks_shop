@@ -12,20 +12,18 @@ function ConstructorPicture(props){
                         <div className="constr-pic__fon_img">
                             {
                                 props.disk.constrImg &&
-                                <div className="constr-img-disk disk-right">
+                                <div className="constr-img-disk disk-left" style={{left:props.pictureModel.left}}>
                                     <img src={`./img/${props.disk.constrImg}`} alt="" />
                                 </div>
                             }
-
                             {
                                 props.disk.constrImg &&
-                                <div className="constr-img-disk disk-left">
+                                <div className="constr-img-disk disk-right" style={{left:props.pictureModel.right}}>
                                     <img src={`./img/${props.disk.constrImg}`} alt="" />
                                 </div>
                             }
-
                             <div className="constr-img-auto">
-                                <img src={`./img/${props.pictureModel.img}`} alt="" />
+                                <img src={`./img/${props.pictureModel.img ? props.pictureModel.img :"e-class.png" }`} alt="" />
                             </div>
                         </div>
                         {

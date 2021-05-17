@@ -11,17 +11,26 @@ function CatalogFilter(props){
         {name:"Вылет (ET)"},
         {name:"DIA"},
     ]);
+    const [markArr,setMarks] = useState([]);
+    const [modelsArr,setModels] = useState([]);
+    // const [currModel,setCurModel] = useState({});
     useEffect(() => {
-        console.log('filter effect');
-        // if (diskArr.length === 0) {
-        //     fetch('./disksmain.json')
-        //     .then(res=>res.json())
-        //     .then(res=>{
-        //         getDisks(res);
-        //         //console.log('disk',diskArr.length);
-        //     });
-        // };
+        if (markArr.length === 0) {
+            fetch('./auto.json')
+            .then(res=>res.json())
+            .then(res=>{
+                setMarks(res);
+            });
+        };
     })
+    function pickMark(name){
+        let pickArr = markArr.filter(markaArr => markaArr.name === name);
+        setModels(pickArr[0].models);
+    }
+    function pickModel(name){
+        let pickModel = modelsArr.filter(model => model.name === name);
+        // setCurModel(pickModel[0]);
+    }
     return (
         <div className="catalog-filter">
                 <div className="catalog-filter__list">
@@ -29,13 +38,8 @@ function CatalogFilter(props){
                         <div className="catalog-filter__list-section_title">
                             <span>По автомобилю</span>
                         </div>
-                        {
-                            autoArr.map((item,index)=>{
-                                return (
-                                    <FilterAuto key={index} item={item}/>
-                                )
-                            })
-                        }
+                        <FilterAuto name="Марка" item={markArr} pickFunction={pickMark}/>
+                        <FilterAuto name="Модель" item={modelsArr} pickFunction={pickModel}/>
 
                         <div className="catalog-filter__list-section_btn">
                             <div className="filter-btn">Сбросить</div>
