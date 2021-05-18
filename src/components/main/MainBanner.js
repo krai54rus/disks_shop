@@ -7,7 +7,7 @@ function MainBanner(){
         <div className="main-banner">
             <div className="main-banner__container">
                 <div className="main-banner__img">
-                    <img src="./img/banner.jpg" className="" alt="" />
+                    <img src="./img/bannerdisk2.jpg" className="" alt="" />
                 </div>
             </div>
         </div>
