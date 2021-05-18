@@ -2,10 +2,6 @@ import React, { useEffect, useState } from 'react';
 import FilterParam from './filter/FilterParam';
 import FilterAuto from './filter/FilterAuto';
 function CatalogFilter(props){
-    const [autoArr,setAuto] = useState([
-        {name:"Марка"},
-        {name:"Модель"},
-    ]);
     const [paramArr,setParam] = useState([
         {name:"Диаметр"},
         {name:"Вылет (ET)"},
@@ -13,7 +9,7 @@ function CatalogFilter(props){
     ]);
     const [markArr,setMarks] = useState([]);
     const [modelsArr,setModels] = useState([]);
-    // const [currModel,setCurModel] = useState({});
+    const [currModel,setCurModel] = useState({});
     useEffect(() => {
         if (markArr.length === 0) {
             fetch('./auto.json')
@@ -29,7 +25,7 @@ function CatalogFilter(props){
     }
     function pickModel(name){
         let pickModel = modelsArr.filter(model => model.name === name);
-        // setCurModel(pickModel[0]);
+        setCurModel(pickModel[0]);
     }
     return (
         <div className="catalog-filter">
