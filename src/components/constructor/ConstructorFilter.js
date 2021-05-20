@@ -23,27 +23,20 @@ function ConstructorFilter(props){
     }
     return (
         <div className="catalog-filter">
-                <div className="catalog-filter__list">
-                    <div className="catalog-filter__list-section">
-                        <div className="catalog-filter__list-section_title">
-                            <span>По автомобилю</span>
-                        </div>
-                        <FilterAuto name="Марка" item={markArr} pickFunction={pickMark}/>
-                        <FilterAuto name="Модель" item={modelsArr} pickFunction={pickModel}/>
-                        {/* {
-                            autoArr.map((item,index)=>{
-                                return (
-                                    <FilterAuto key={index} item={item}/>
-                                )
-                            })
-                        } */}
+            <div className="catalog-filter__list">
+                <div className="catalog-filter__list-section">
+                    <div className="catalog-filter__list-section_title">
+                        <span>По автомобилю</span>
+                    </div>
+                    <FilterAuto name="Марка" item={markArr} pickFunction={pickMark}/>
+                    <FilterAuto name="Модель" item={modelsArr} pickFunction={pickModel}/>
 
-                        <div className="catalog-filter__list-section_btn">
-                            <div className="filter-btn" onClick={() => props.setPicture(currModel)}>Применить</div>
-                        </div>
+                    <div className="catalog-filter__list-section_btn">
+                        <div className="filter-btn" onClick={() => props.setPicture(currModel)}>Применить</div>
                     </div>
                 </div>
             </div>
+        </div>
     );
 }
 export default ConstructorFilter;

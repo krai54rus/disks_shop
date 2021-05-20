@@ -268,9 +268,51 @@ a{
   justify-content: space-between;
   align-items: flex-start;
   margin-top: 15px;
+  position: relative;
+}
+/* .catalog-filter{
+  background-color: white;
+} */
+.catalog-filter__mobile{
+  display: none;
+  justify-content: flex-start;
+  padding: 0px 15px;
+  width: 100%;
+}
+.filter-show{
+  display: block !important;
+}
+.catalog-filter__mobile_btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #0b3d58;
+  background-color: #0b3d58;
+  border-radius: 5px;
+  color: white;
+  width: 150px;
+  padding: 10px 20px;
+  transition: 0.5s;
+}
+.mobile-filter-button{
+  margin-right: 15px;
+}
+.catalog-filter__mobile_btn.mobclick{
+  background-color: #fff;
+  color: #0b3d58;
+}
+.mobile-button_img{
+  width: 30px;
+  height: 30px;
+}
+.mobile-button_img img{
+  width: 100%;
+  height: 100%;
 }
 .catalog-filter__list{
   width: 300px;
+  background-color: white;
+  z-index: 10;
 }
 .catalog-filter__list-section_title{
   text-align: center;
@@ -390,7 +432,16 @@ a{
   width: 100%;
   height: 100%;
 }
-
+.catalog-filer__overlay{
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(19, 103, 147, .5);
+  z-index: 4;
+}
 @media (max-width: 1439px){
   .catalog-disks__list{
     padding-right: 22px;
@@ -400,16 +451,38 @@ a{
   }
 }
 @media (max-width: 1024px){
+  .catalog-wrapper{
+    flex-direction: column;
+  }
+  .catalog-filter{
+    position: absolute;
+    width: 100%;
+    /* background-color: rgba(19, 103, 147, 0.5); */
+    height: 100vh;
+    top: -70px;
+    display: none;
+  }
+  .catalog-filer__overlay{
+    display: block;
+  }
+  .catalog-filter__list {
+    position: absolute;
+    right: 0px;
+  }
+  .catalog-filter__mobile{
+    display: flex;
+  }
   .catalog-disks__list{
     padding-right: 10px;
     padding-left: 10px;
   }
   .catalog-disks__list_item {
-    width: calc(50% - 10px);
+    width: calc(33.3% - 10px);
     margin: 5px;
   }
 }
-@media (max-width: 900px){
+
+/* @media (max-width: 900px){
   .catalog-wrapper{
     flex-direction: column;
   }
@@ -419,7 +492,7 @@ a{
   .catalog-filter__list{
     width: 100%;
   }
-}
+} */
 @media (max-width: 767px){
   .catalog-disks__list{
     justify-content: center;

@@ -28,7 +28,8 @@ function CatalogFilter(props){
         setCurModel(pickModel[0]);
     }
     return (
-        <div className="catalog-filter">
+        <div className={`catalog-filter ${props.showFilter ? "filter-show" : ""}`}>
+                <div className="catalog-filer__overlay" onClick={() => props.toggleFilter(false)}></div>
                 <div className="catalog-filter__list">
                     <div className="catalog-filter__list-section">
                         <div className="catalog-filter__list-section_title">
