@@ -18,8 +18,8 @@ function CatalogFilterMobile(props){
                     <div className="mobile-button_img">
                       {
                         props.showFilter
-                        ? <img src="./img/filter.svg" alt="" />
-                        : <img src="./img/filter-white.svg" alt="" />
+                        ? <img src="/img/filter.svg" alt="" />
+                        : <img src="/img/filter-white.svg" alt="" />
                       }
                     </div>
                   </div>

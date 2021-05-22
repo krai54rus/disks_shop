@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ConstructorFilter from '../constructor/ConstructorFilter';
 import ConstructorPicture from '../constructor/ConstructorPicture';
 import ConstructorDisks from '../constructor/ConstructorDisks';
+import CatalogFilterMobile from '../catalog/CatalogFilterMobile';
 function ConstructorPage(){ 
     const [diskArr,setDisk] = useState([
         {"name":"disk1","constrImg":"constr-disk4.png","price":"5420"},
@@ -22,12 +23,17 @@ function ConstructorPage(){
     function setPicture(modelObj){
         setPicModel(modelObj);
     }
+    const [showFilter,toggleFilter] = useState(false);
+    function toggleFilterFunc(show = false) {
+        toggleFilter(show);
+    }
     return(
         <div className="constructor-page">
             <div className="container">
                 <div className="constructor-wrapper">
                     <div className="constructor-wrapper-auto">
-                        <ConstructorFilter setPicture={setPicture} />
+                        <CatalogFilterMobile showFilter={showFilter} toggleFilter={toggleFilterFunc} />
+                        <ConstructorFilter showFilter={showFilter} toggleFilter={toggleFilterFunc} setPicture={setPicture} />
                         <ConstructorPicture pictureModel={pictureModel} disk={diskApp}/>
                     </div>
                     <div className="constructor-wrapper-disks">

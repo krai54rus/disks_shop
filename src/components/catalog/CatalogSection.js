@@ -13,7 +13,7 @@ function CatalogSection(props){
                             <div key={index} className="catalog-disks__list_item">
                                 <div className="catalog-disks__list_item-top">
                                     <div className="catalog-disks__list_item-img">
-                                        <img src={`./img/${item.name}.png`} alt=""/>
+                                        <img src={`/img/${item.name}.png`} alt=""/>
                                     </div>
                                     <div className="catalog-disks__list_item-name">
                                         <span>{ item.name }</span>

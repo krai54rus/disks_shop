@@ -30,14 +30,14 @@ function MainDisks(props){
                     {
                         diskArr.length > 0 &&
                         diskArr.map((item,index)=>
-                            <div key={index} className="main-disks__list_item">
+                            <Link to="/catalog/BMW/x5/" key={index} className="main-disks__list_item">
                                 <div className="main-disks__list_item-img">
                                     <img src={`./img/${item.img}`} alt=""/>
                                 </div>
                                 <div className="main-disks__list_item-text">
                                     <span>{item.name}</span>
                                 </div>
-                            </div>
+                            </Link>
                         )
                     }
                 </div>

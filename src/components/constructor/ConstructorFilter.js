@@ -20,9 +20,18 @@ function ConstructorFilter(props){
     function pickModel(name){
         let pickModel = modelsArr.filter(model => model.name === name);
         setCurModel(pickModel[0]);
+        // if (currModel) {
+        props.setPicture(pickModel[0]);
+        props.toggleFilter(false);
+        // }
+    }
+    function sbrosFilter (){
+        setCurModel({});
+        setModels([]);
     }
     return (
-        <div className="catalog-filter">
+        <div className={`catalog-filter ${props.showFilter ? "filter-show" : ""}`}>
+            <div className="catalog-filer__overlay" onClick={() => props.toggleFilter(false)}></div>
             <div className="catalog-filter__list">
                 <div className="catalog-filter__list-section">
                     <div className="catalog-filter__list-section_title">
@@ -32,7 +41,7 @@ function ConstructorFilter(props){
                     <FilterAuto name="Модель" item={modelsArr} pickFunction={pickModel}/>
 
                     <div className="catalog-filter__list-section_btn">
-                        <div className="filter-btn" onClick={() => props.setPicture(currModel)}>Применить</div>
+                        <div className="filter-btn" onClick={() => sbrosFilter()}>Сбросить</div>
                     </div>
                 </div>
             </div>

@@ -454,6 +454,9 @@ a{
   .catalog-wrapper{
     flex-direction: column;
   }
+  .constructor-wrapper-auto {
+    flex-direction: column;
+  }
   .catalog-filter{
     position: absolute;
     width: 100%;
@@ -526,6 +529,7 @@ a{
 /* CONSTRUCTOR */
 .constructor-wrapper{
   margin-top: 15px;
+  position: relative;
 }
 .constructor-wrapper-auto {
   display: flex;
@@ -558,8 +562,11 @@ a{
   height: 100%;
 }
 @media(max-width:1279px){
-  .constructor-wrapper-auto{
-    padding: 15px;
+  .constr-pic{
+    margin: 15px;
+  }
+  .constr-section{
+    padding: 5px;
   }
 }
 .constr-img-disk{
