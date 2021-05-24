@@ -1,17 +1,30 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation, useParams } from 'react-router';
 import FilterAuto from '../catalog/filter/FilterAuto';
 function ConstructorFilter(props){
     const [markArr,setMarks] = useState([]);
     const [modelsArr,setModels] = useState([]);
     const [currModel,setCurModel] = useState({});
+    let { marka, model } = useParams();
+    let location = useLocation();
     useEffect(() => {
         if (markArr.length === 0) {
-            fetch('./auto.json')
+            fetch('/auto.json')
             .then(res=>res.json())
             .then(res=>{
                 setMarks(res);
             });
-        };
+        }else{
+            if (marka && markArr.length && modelsArr.length === 0) {
+                console.log('useEff pick mark');
+                console.log(location);
+                pickMark(marka);
+            }
+            if (model && modelsArr.length && Object.keys(currModel).length === 0) {
+                console.log('useEff pick model');
+                pickModel(model);
+            }
+        }
     })
     function pickMark(name){
         let pickArr = markArr.filter(markaArr => markaArr.name === name);

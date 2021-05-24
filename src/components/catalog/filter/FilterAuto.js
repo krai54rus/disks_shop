@@ -20,7 +20,7 @@ function FilterAuto(props){
                 <div className="catalog-filter-values__wrap">
                     <div className="catalog-filter-values__select" onClick={() => showFilter()}>
                         <span className="filter-select__value">{currentVal}</span>
-                        <img className={` ${show ? "arrow-scale" : ""}`} src="./img/arrow-down.svg" alt="" />
+                        <img className={` ${show ? "arrow-scale" : ""}`} src="/img/arrow-down.svg" alt="" />
                     </div>
                     <div className={`catalog-filter-auto-values__list ${show ? "" : "hidden"}`}>
                     {

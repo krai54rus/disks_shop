@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 function ConstructorPicture(props){
     // const [diskArr,getDisks] = useState([]);
     useEffect(() => {
-        console.log('constr pic effect');
         console.log(props);
     })
     return (
@@ -13,17 +12,17 @@ function ConstructorPicture(props){
                             {
                                 props.disk.constrImg &&
                                 <div className="constr-img-disk disk-left" style={{left:props.pictureModel.left}}>
-                                    <img src={`./img/${props.disk.constrImg}`} alt="" />
+                                    <img src={`/img/${props.disk.constrImg}`} alt="" />
                                 </div>
                             }
                             {
                                 props.disk.constrImg &&
                                 <div className="constr-img-disk disk-right" style={{left:props.pictureModel.right}}>
-                                    <img src={`./img/${props.disk.constrImg}`} alt="" />
+                                    <img src={`/img/${props.disk.constrImg}`} alt="" />
                                 </div>
                             }
                             <div className="constr-img-auto">
-                                <img src={`./img/${props.pictureModel.img ? props.pictureModel.img :"e-class.png" }`} alt="" />
+                                <img src={`/img/${props.pictureModel ? props.pictureModel.img :"e-class.png" }`} alt="" />
                             </div>
                         </div>
                         {

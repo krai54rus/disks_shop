@@ -17,7 +17,7 @@ function Content(){
                 <Route path="/catalog/:marka?/:model?">
                     <CatalogPage />
                 </Route>
-                <Route path="/constructor">
+                <Route path="/constructor/:marka?/:model?">
                     <ConstructorPage />
                 </Route>
                 <Route path="/personal">
