@@ -22,7 +22,16 @@ function ConstructorPicture(props){
                                 </div>
                             }
                             <div className="constr-img-auto">
-                                <img src={`/img/${props.pictureModel ? props.pictureModel.img :"e-class.png" }`} alt="" />
+                                {
+                                    props.pictureModel && props.pictureModel.img
+                                    ?   <img src={`/img/${props.pictureModel.img}`} alt="" />
+                                    :   <div className="constr__no-img">
+                                            <div className="constr__no-img_overlay">
+                                                <span>Выберите Марку и Модель</span>
+                                            </div>
+                                            <img src={`/img/e-class.png`} alt="" />
+                                        </div>
+                                }
                             </div>
                         </div>
                         {
@@ -36,7 +45,7 @@ function ConstructorPicture(props){
                                 </div>
                             </div>
                         }
-                        
+
                     </div>
                 </div>
             </div>

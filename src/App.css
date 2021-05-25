@@ -551,11 +551,27 @@ a{
 .constr-pic__fon_img{
   position: relative;
 }
-.constr-pic__fon_img{
-
-}
 .constr-img-auto{
   width: 100%;
+}
+.constr__no-img{
+  position: relative;
+}
+.constr__no-img_overlay{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #1E3441;
+  opacity: 0.9;
+}
+.constr__no-img_overlay span{
+  color: white;
+  font-size: 32px;
 }
 .constr-img-auto img{
   width: 100%;
@@ -567,6 +583,11 @@ a{
   }
   .constr-section{
     padding: 5px;
+  }
+}
+@media(max-width:1024px){
+  .constr-pic{
+    margin: 0px;
   }
 }
 .constr-img-disk{

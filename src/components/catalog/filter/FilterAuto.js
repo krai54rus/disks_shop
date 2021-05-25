@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 function FilterAuto(props){
     const [show,changeShow] = useState(false);
     const [currentVal,setCurVal] = useState(props.name);
-
+    console.log(props.name);
     function showFilter(){
         if (show) {
             changeShow(false);
@@ -13,21 +13,21 @@ function FilterAuto(props){
     return (
         <div className="catalog-filter__list_item" >
             <div className="catalog-filter-name" >
-                <span>{props.name}</span>
+                <span>{props.filtername}</span>
             </div>
 
             <div className='catalog-filter-values'>
                 <div className="catalog-filter-values__wrap">
                     <div className="catalog-filter-values__select" onClick={() => showFilter()}>
-                        <span className="filter-select__value">{currentVal}</span>
+                        <span className="filter-select__value">{props.name}</span>
                         <img className={` ${show ? "arrow-scale" : ""}`} src="/img/arrow-down.svg" alt="" />
                     </div>
                     <div className={`catalog-filter-auto-values__list ${show ? "" : "hidden"}`}>
                     {
                         props.item.map((item,index)=>{
                             return(
-                                <div key={index} 
-                                    className="catalog-filter-values__item" 
+                                <div key={index}
+                                    className="catalog-filter-values__item"
                                     onClick={
                                         ()=>{
                                         changeShow(false);
@@ -42,7 +42,7 @@ function FilterAuto(props){
                         })
                     }
                     </div>
-                    
+
                 </div>
             </div>
         </div>
