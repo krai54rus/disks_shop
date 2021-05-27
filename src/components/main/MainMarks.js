@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 function MainMarks(props){
     const [markArr,getMarks] = useState([]);
     useEffect(() => {
@@ -23,14 +24,14 @@ function MainMarks(props){
                     {
                         markArr.length > 0 &&
                         markArr.map((item,index)=>
-                            <div key={index} className="main-marks__list_item">
+                            <Link to={`constructor/${item.link}`} key={index} className="main-marks__list_item">
                                 <div className="main-marks__list_item-img">
                                     <img src={`./img/${item.img}`} alt=""/>
                                 </div>
                                 <div className="main-marks__list_item-text">
                                     <span>Диски для {item.name}</span>
                                 </div>
-                            </div>
+                            </Link>
                         )
                     }
                 </div>

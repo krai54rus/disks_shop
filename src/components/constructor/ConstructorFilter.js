@@ -22,10 +22,13 @@ function ConstructorFilter(props){
         }else{
             // Если в параметрах URL'а есть марка и модель - применяет их
             if (marka && markArr.length && modelsArr.length === 0) {
-                pickMark(marka);
+                const markName = marka.replace('-',' ');
+                pickMark(markName);
             }
             if (model && modelsArr.length && Object.keys(currModel).length === 0) {
-                pickModel(model);
+                const modelName = model.replaceAll('-',' ');
+                console.log(modelName);
+                pickModel(modelName);
             }
         }
     })

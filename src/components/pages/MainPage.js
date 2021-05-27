@@ -21,7 +21,14 @@ function MainPage(){
             <MainBanner />
             <MainMarks />
             <MainDisks />
-            <MainBrands />
+            <div>
+                <div className="container">
+                    <div className="main-img">
+                        <img src="/img/qwe11.png" alt="" />
+                    </div>
+                </div>
+            </div> 
+            {/* <MainBrands /> */}
         </div>
     )
 }

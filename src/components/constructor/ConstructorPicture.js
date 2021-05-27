@@ -37,11 +37,33 @@ function ConstructorPicture(props){
                         {
                             Object.keys(props.disk).length !== 0 &&
                             <div className="constr-pic__fon_info">
-                                <div className="constr-pic__fon_info-disk">
-                                    {props.disk.name}
-                                </div>
-                                <div className="constr-pic__fon_info-btn">
-                                    <div className="info-btn-save">Сохранить комплектацию</div>
+                                {/* <div className="constr-pic__info-small">
+                                    <span>{props.disk.name}</span>
+                                </div> */}
+                                <div className="constr-pic__info-wrap">
+                                    <div className="constr-pic__fon_info-disk">
+                                        <div className="constr-pic__info-disk_prop prop-top prop-name">
+                                            <span>{props.disk.name}</span>
+                                        </div>
+                                        <div className="constr-pic__info-disk_prop prop-top prop-price">
+                                            <span>{props.disk.price}</span>
+                                        </div>
+                                        <div className="constr-pic__info-disk_prop prop-size">
+                                            <span>Диаметр</span>
+                                            <span>{props.disk.size}</span>
+                                        </div>
+                                        <div className="constr-pic__info-disk_prop prop-et">
+                                            <span>Вылет (ET)</span>
+                                            <span>{props.disk.et}</span>
+                                        </div>
+                                        <div className="constr-pic__info-disk_prop prop-dia">
+                                            <span>DIA</span>
+                                            <span>{props.disk.dia}</span>
+                                        </div>
+                                    </div>
+                                    <div className="constr-pic__fon_info-btn">
+                                        <div className="info-btn-save">Сохранить комплектацию</div>
+                                    </div>
                                 </div>
                             </div>
                         }

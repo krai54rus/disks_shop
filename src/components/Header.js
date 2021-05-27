@@ -9,7 +9,7 @@ function Header(props){
             <div className="header-items">
                 {/* <div className="header-items__left"> */}
                     <div className="header-items___link header-items__left_link">
-                        <Link to="/">Название</Link>
+                        <Link to="/">DISCOLAND</Link>
                     </div>
                     {/* <div className="header-items___link header-items__left_link">
                         <span>+7 (989) 989-98-99</span>
@@ -24,7 +24,10 @@ function Header(props){
                         <Link to="/constructor">Конструктор</Link>
                     </div>
                     <div className="header-items___link header-items__right_link">
-                        <Link to="/personal">ЛК</Link>
+                        <Link to="/personal">
+                            <img src="/img/user-pers.svg" alt="" />
+                            Личный кабинет
+                        </Link>
                     </div>
                 {/* </div> */}
             </div>

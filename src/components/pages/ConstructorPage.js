@@ -5,14 +5,42 @@ import ConstructorDisks from '../constructor/ConstructorDisks';
 import CatalogFilterMobile from '../catalog/CatalogFilterMobile';
 function ConstructorPage(){ 
     const [diskArr,setDisk] = useState([
-        {"name":"disk1","constrImg":"constr-disk4.png","price":"5420"},
-        {"name":"disk2","constrImg":"constr-disk1.png","price":"3700"},
-        {"name":"disk3","constrImg":"constr-disk2.png","price":"4400"},
-        {"name":"disk4","constrImg":"constr-disk3.png","price":"6700"},
-        {"name":"disk1","constrImg":"constr-disk4.png","price":"4800"},
-        {"name":"disk2","constrImg":"constr-disk1.png","price":"9000"},
-        {"name":"disk3","constrImg":"constr-disk2.png","price":"5000"},
-        {"name":"disk4","constrImg":"constr-disk3.png","price":"6400"}
+        {
+            "name":"disk1",
+            "constrImg":"constr-disk4.png",
+            "price":"5420",
+            "size": "18",
+            "et": "15",
+            "dia": "105",
+        },
+        {"name":"disk2","constrImg":"constr-disk1.png","price":"3700",
+        "size": "18",
+        "et": "15",
+        "dia": "105",},
+        {"name":"disk3","constrImg":"constr-disk2.png","price":"4400",
+        "size": "18",
+        "et": "15",
+        "dia": "105",},
+        {"name":"disk4","constrImg":"constr-disk3.png","price":"6700",
+        "size": "18",
+        "et": "15",
+        "dia": "105",},
+        {"name":"disk1","constrImg":"constr-disk4.png","price":"4800",
+        "size": "18",
+        "et": "15",
+        "dia": "105",},
+        {"name":"disk2","constrImg":"constr-disk1.png","price":"9000",
+        "size": "18",
+        "et": "15",
+        "dia": "105",},
+        {"name":"disk3","constrImg":"constr-disk2.png","price":"5000",
+        "size": "18",
+        "et": "15",
+        "dia": "105",},
+        {"name":"disk4","constrImg":"constr-disk3.png","price":"6400",
+        "size": "18",
+        "et": "15",
+        "dia": "105",}
     ]);
     const [diskApp,setDiskApp] = useState({});
     const [pictureModel,setPicModel] = useState({});
