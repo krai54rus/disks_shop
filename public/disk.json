@@ -1,0 +1,15 @@
+[
+    {
+        "name":"BMW",
+        "models":[
+            {
+                "name":"x5",
+                "img":"bmwx5.png",
+                "size":[18,20],
+                "left":"24.3%",
+                "right":"65.5%"
+            }
+        ]
+    }
+  ]
+  
