@@ -5,7 +5,7 @@ function Footer(){
             <div className="container">
             <div className="footer-items">
                 <div className="footer-items__item">
-                    <span>DISCOLAND</span>
+                    <span>Hot Wheels</span>
                 </div>
                 <div className="footer-items__item">
                     <span>+7 (989) 989-98-99</span>

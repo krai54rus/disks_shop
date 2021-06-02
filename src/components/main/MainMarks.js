@@ -20,6 +20,9 @@ function MainMarks(props){
                 <div className="main-marks__title">
                     <span>Диски для популярных моделей</span>
                 </div>
+                <div className="main-disks__text">
+                    <span>Мы подготовили для вас лучшие подборки. получайте удовольствие от вождения!</span>
+                </div>
                 <div className="main-marks__list">
                     {
                         markArr.length > 0 &&
