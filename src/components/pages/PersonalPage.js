@@ -13,9 +13,15 @@ function PersonalPage(){
             <div className="container">
                 <div className="personal-wrapper">
                     <div className="personal__sidebar">
-                        <Link to="/personal/info">Личная информация</Link>
-                        <Link to="/personal/garage">Гараж</Link>
-                        <Link to="/personal/favourite">Избранные диски</Link>
+                        <div className="personal__sidebar_link">
+                            <Link to="/personal">Личная информация</Link>
+                        </div>
+                        <div className="personal__sidebar_link">
+                            <Link to="/personal/garage">Гараж</Link>
+                        </div>
+                        <div className="personal__sidebar_link">
+                            <Link to="/personal/favourite">Избранные диски</Link>
+                        </div>
                     </div>
                     <div className="personal__content">
                     <Switch>
