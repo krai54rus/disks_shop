@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
+// import config from '../../config';
 import {
     Link,
   } from "react-router-dom";
 function MainDisks(props){
     const [diskArr,getDisks] = useState([]);
     useEffect(() => {
-        console.log('disks effect');
         if (diskArr.length === 0) {
+            // fetch(`${config.apiUrl}/disks/top`)
             fetch('./disksmain.json')
             .then(res=>res.json())
             .then(res=>{
                 getDisks(res);
-                //console.log('disk',diskArr.length);
             });
         };
     })

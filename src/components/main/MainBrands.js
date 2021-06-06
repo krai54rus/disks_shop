@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 function MainBrands(props){
     const [brandsArr,setBrands] = useState([]);
     useEffect(() => {
-        console.log('brands effect');
         if (brandsArr.length === 0) {
             fetch('./brandsmain.json')
             .then(res=>res.json())

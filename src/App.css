@@ -469,6 +469,16 @@ a{
   border: 1px solid #D8E1E4;
   border-radius: 7px;
   padding: 15px;
+  position: relative;
+}
+.disk-favorite{
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+.disk-favorite img{
+  width: 30px;
+  height: 30px;
 }
 .catalog-disks__list_item-top{
   display: flex;
@@ -783,6 +793,9 @@ a{
 .info__data_list_item{
   font-size: 18px;
   margin: 5px 0px;
+}
+.info__data_list_item input{
+  font-size: 18px;
 }
 /* FOOTER */
 .footer{

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 function FilterAuto(props){
     const [show,changeShow] = useState(false);
     const [currentVal,setCurVal] = useState(props.name);
-    console.log(props.name);
     function showFilter(){
         if (show) {
             changeShow(false);

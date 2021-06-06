@@ -1,60 +1,48 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ConstructorFilter from '../constructor/ConstructorFilter';
 import ConstructorPicture from '../constructor/ConstructorPicture';
 import ConstructorDisks from '../constructor/ConstructorDisks';
 import CatalogFilterMobile from '../catalog/CatalogFilterMobile';
+import config from '../../config';
+import { useParams } from 'react-router';
 function ConstructorPage(){ 
-    const [diskArr,setDisk] = useState([
-        {
-            "name":"disk1",
-            "constrImg":"constr-disk4.png",
-            "price":"5420",
-            "size": "18",
-            "et": "15",
-            "dia": "105",
-        },
-        {"name":"disk2","constrImg":"constr-disk1.png","price":"3700",
-        "size": "18",
-        "et": "15",
-        "dia": "105",},
-        {"name":"disk3","constrImg":"constr-disk2.png","price":"4400",
-        "size": "18",
-        "et": "15",
-        "dia": "105",},
-        {"name":"disk4","constrImg":"constr-disk3.png","price":"6700",
-        "size": "18",
-        "et": "15",
-        "dia": "105",},
-        {"name":"disk1","constrImg":"constr-disk4.png","price":"4800",
-        "size": "18",
-        "et": "15",
-        "dia": "105",},
-        {"name":"disk2","constrImg":"constr-disk1.png","price":"9000",
-        "size": "18",
-        "et": "15",
-        "dia": "105",},
-        {"name":"disk3","constrImg":"constr-disk2.png","price":"5000",
-        "size": "18",
-        "et": "15",
-        "dia": "105",},
-        {"name":"disk4","constrImg":"constr-disk3.png","price":"6400",
-        "size": "18",
-        "et": "15",
-        "dia": "105",}
-    ]);
+    const [diskArr,setDisk] = useState([]);
     const [diskApp,setDiskApp] = useState({});
+    //Параметры URL
+    let { marka, model } = useParams();
     const [pictureModel,setPicModel] = useState({});
     function diskApply(disk){
         console.log(disk);
         setDiskApp(disk);
     }
     function setPicture(modelObj){
+        console.log(modelObj);
+        console.log(marka);
         setPicModel(modelObj);
+        // fetch(`${config.apiUrl}/constructor/${}`)
+        // .then(res=>res.json())
+        // .then(res=>{
+        //     console.log(res);
+        // })
     }
     const [showFilter,toggleFilter] = useState(false);
     function toggleFilterFunc(show = false) {
         toggleFilter(show);
     }
+    function searchDisks(){
+        fetch(`${config.apiUrl}/constructor?marka=${marka}&model=${model}`)
+        .then(res=>res.json())
+        .then(res=>{
+            console.log(res);
+            setDisk(res);
+            return res;
+        });
+    }
+    useEffect(()=>{
+        if (!diskArr.length && marka && model) {
+            searchDisks();
+        }
+    })
     return(
         <div className="constructor-page">
             <div className="container">

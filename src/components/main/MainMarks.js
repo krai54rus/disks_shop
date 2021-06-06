@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+// import config from '../../config';
 function MainMarks(props){
     const [markArr,getMarks] = useState([]);
     useEffect(() => {
-        console.log('marks effect');
         if (markArr.length === 0) {
+            // fetch(`${config.apiUrl}/auto/top`)
             fetch('./models.json')
             .then(res=>res.json())
             .then(res=>{
                 getMarks(res);
-                //console.log('marks',res);
             });
         };
     })

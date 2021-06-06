@@ -22,13 +22,12 @@ function ConstructorFilter(props){
         }else{
             // Если в параметрах URL'а есть марка и модель - применяет их
             if (marka && markArr.length && modelsArr.length === 0) {
-                const markName = marka.replace('-',' ');
-                pickMark(markName);
+                // const markName = marka.replace('-',' ');
+                pickMark(marka);
             }
             if (model && modelsArr.length && Object.keys(currModel).length === 0) {
-                const modelName = model.replaceAll('-',' ');
-                console.log(modelName);
-                pickModel(modelName);
+                // const modelName = model.replaceAll('-',' ');
+                pickModel(model);
             }
         }
     })
@@ -37,6 +36,7 @@ function ConstructorFilter(props){
         let pickArr = markArr.filter(markaArr => markaArr.name === name);
         setModels(pickArr[0].models);
 
+        window.history.pushState({}, '', `/constructor/${pickArr[0].name}`);
         // Имя марки в фильтре
         setDefMarka(pickArr[0].name);
     }
@@ -45,6 +45,7 @@ function ConstructorFilter(props){
         let pickModel = modelsArr.filter(model => model.name === name);
         setCurModel(pickModel[0]);
 
+        window.history.pushState({}, '', `${window.location.pathname}/${pickModel[0].name}`);
         // Имя модели в фильтре
         setDefModel(pickModel[0].name);
 
