@@ -12,7 +12,14 @@ function PersonalPage(){
         <div className="personal-page">
             <div className="container">
                 <div className="personal-wrapper">
-                    <div className="personal__sidebar">
+                    <div className="personal__left">
+                        <PersonalInfo />
+                    </div>
+                    <div className="personal__right">
+                        <PersonalFavourite />
+                        <PersonalGarage />
+                    </div>
+                    {/* <div className="personal__sidebar">
                         <div className="personal__sidebar_link">
                             <Link to="/personal">Личная информация</Link>
                         </div>
@@ -35,7 +42,7 @@ function PersonalPage(){
                             <PersonalFavourite />
                         </Route>
                     </Switch>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
