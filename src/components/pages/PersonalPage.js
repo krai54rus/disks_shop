@@ -12,10 +12,10 @@ function PersonalPage(){
         <div className="personal-page">
             <div className="container">
                 <div className="personal-wrapper">
-                    <div className="personal__left">
+                    <div className="personal-left">
                         <PersonalInfo />
                     </div>
-                    <div className="personal__right">
+                    <div className="personal-right">
                         <PersonalFavourite />
                         <PersonalGarage />
                     </div>
