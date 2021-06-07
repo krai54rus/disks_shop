@@ -1,22 +1,22 @@
 [
     {
         "name":"BMW x5",
-        "img":"img1.png",
+        "img":"icon-bmw.png",
         "link":"BMW/x5"
     },
     {
         "name":"Mazda 6",
-        "img":"img2.png",
+        "img":"icon-mazda.png",
         "link":"Mazda/6"
     },
     {
-        "name":"Mercedes E320",
-        "img":"img3.png",
-        "link":"Mercedes/6"
+        "name":"Mercedes E-class",
+        "img":"icon-mercedes.png",
+        "link":"Mercedes/E-class"
     },
     {
         "name":"Toyota",
-        "img":"img4.png",
-        "link":"Toyota/Land-Cruiser-200"
+        "img":"icon-toyota.png",
+        "link":"Toyota/Land Cruiser 200"
     }
 ]

@@ -13,7 +13,7 @@ function PersonalFavourite(){
                 return res;
             });
         }
-    }, []);
+    });
     return(
         <div className="personal-favourite">
             <div className="personal-favourite__title">

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import config from '../../config';
+import config from '../../config';
 import {
     Link,
   } from "react-router-dom";
@@ -8,7 +8,8 @@ function MainDisks(props){
     useEffect(() => {
         if (diskArr.length === 0) {
             // fetch(`${config.apiUrl}/disks/top`)
-            fetch('./disksmain.json')
+            // fetch('./disksmain.json')
+            fetch(`${config.apiUrl}/main/disks`)
             .then(res=>res.json())
             .then(res=>{
                 getDisks(res);

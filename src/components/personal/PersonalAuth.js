@@ -9,16 +9,14 @@ function PersonalAuth(){
                 <div className="auth__form_elements">
                     <div className="auth__form_inputs">
                         <div className="auth__form_inputs-input">
-                            <span>Логин</span>
-                            <input type="text" placeholder="your_email@mail.ru"/>
+                            <input type="text" placeholder="Логин"/>
                         </div>
                         <div className="auth__form_inputs-input">
-                            <span>Пароль</span>
-                            <input type="text" placeholder="your_email@mail.ru"/>
+                            <input type="text" placeholder="Пароль"/>
                         </div>
                     </div>
                     <div className="auth__form_inputs-button">
-                        <span>Вход</span>
+                        <div className="auth__form_inputs-button_btn">Вход</div>
                     </div>
                 </div>
             </div>
