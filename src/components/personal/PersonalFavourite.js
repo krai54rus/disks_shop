@@ -19,12 +19,22 @@ function PersonalFavourite(){
             <div className="personal-favourite__title">
                 <h1>Избранные диски</h1>
             </div>
-            <div className="personal-favourite__disks">
-                {
-                    diskArr.map((item,index)=>
-                        <PersonalDisk key={index} item={item}/>
-                    )
-                }
+            <div className="personal-favourite__slider">
+                <div className="personal-favourite__disks">
+                    <div className="personal-favourite__disks_list">
+                        {
+                            diskArr.map((item,index)=>
+                                <PersonalDisk key={index} item={item}/>
+                            )
+                        }
+                    </div>
+                </div>
+                <div className="personal-slider-arrow slider-arrow-left">
+                    <img src="/img/right-arrow-small.svg" alt="" />
+                </div>
+                <div className="personal-slider-arrow slider-arrow-right">
+                    <img src="/img/right-arrow-small.svg" alt="" />
+                </div>
             </div>
         </div>
     )
