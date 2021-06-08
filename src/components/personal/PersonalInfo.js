@@ -8,20 +8,20 @@ function PersonalInfo(){
             <div className="personal-info__data">
                 <div className="personal-info__data_list">
                     <div className="info__data_list_item">
-                        <span>Имя: </span>
-                        <input type="text" defaultValue="Евгений" />
+                        <span>Логин: </span>
+                        <input type="text" defaultValue="Admin" />
                     </div>
                     <div className="info__data_list_item">
-                        <span>Фамилия: </span>
-                        <input type="text" defaultValue="Ушаков" />
+                        <span>ФИО: </span>
+                        <input type="text" defaultValue="" />
                     </div>
                     <div className="info__data_list_item">
                         <span>E-mail: </span>
-                        <input type="text" defaultValue="krai54rus@gmail.com" />
+                        <input type="text" defaultValue="" />
                     </div>
                     <div className="info__data_list_item">
                         <span>Телефон: </span>
-                        <input type="text" defaultValue="+7 983-314-49-36" />
+                        <input type="text" defaultValue="" />
                     </div>
                 </div>
             </div>

@@ -877,6 +877,11 @@ a{
 .auth__form_title img{
   width: 100px;
 }
+.auth-error{
+  color: white;
+  width: 300px;
+  text-align: center;
+}
 .auth__form_inputs-input{
   margin-bottom: 7px;
 }

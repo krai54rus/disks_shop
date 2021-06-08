@@ -7,8 +7,6 @@ function MainDisks(props){
     const [diskArr,getDisks] = useState([]);
     useEffect(() => {
         if (diskArr.length === 0) {
-            // fetch(`${config.apiUrl}/disks/top`)
-            // fetch('./disksmain.json')
             fetch(`${config.apiUrl}/main/disks`)
             .then(res=>res.json())
             .then(res=>{

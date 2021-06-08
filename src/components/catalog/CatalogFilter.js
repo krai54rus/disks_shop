@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import FilterParam from './filter/FilterParam';
 import FilterAuto from './filter/FilterAuto';
+import config from '../../config';
 function CatalogFilter(props){
     const [paramArr,setParam] = useState([
         {name:"Диаметр"},
@@ -17,7 +18,7 @@ function CatalogFilter(props){
 
     useEffect(() => {
         if (markArr.length === 0) {
-            fetch('./auto.json')
+            fetch(`${config.apiUrl}/auto`)
             .then(res=>res.json())
             .then(res=>{
                 setMarks(res);

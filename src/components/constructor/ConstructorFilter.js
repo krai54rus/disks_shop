@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import FilterAuto from '../catalog/filter/FilterAuto';
+import config from '../../config';
 function ConstructorFilter(props){
     //Выбранные марка,модель
     const [markArr,setMarks] = useState([]);
@@ -11,10 +12,9 @@ function ConstructorFilter(props){
     const [defaultModel, setDefModel] = useState('Модель');
     //Параметры URL
     let { marka, model } = useParams();
-    let location = useLocation();
     useEffect(() => {
         if (markArr.length === 0) {
-            fetch('/auto.json')
+            fetch(`${config.apiUrl}/auto`)
             .then(res=>res.json())
             .then(res=>{
                 setMarks(res);

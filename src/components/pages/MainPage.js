@@ -2,7 +2,6 @@ import React from 'react';
 import MainBanner from '../main/MainBanner';
 import MainMarks from '../main/MainMarks';
 import MainDisks from '../main/MainDisks';
-import MainBrands from '../main/MainBrands';
 function MainPage(){
     return(
         <div className="main-page">
@@ -12,11 +11,10 @@ function MainPage(){
             <div>
                 <div className="container">
                     <div className="main-img">
-                        <img src="/img/qwe11.png" alt="" />
+                        <img src="/img/cars-main.png" alt="" />
                     </div>
                 </div>
             </div> 
-            {/* <MainBrands /> */}
         </div>
     )
 }

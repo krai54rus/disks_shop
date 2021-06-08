@@ -1,16 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 function FilterParam(props){
     const [show,changeShow] = useState(false);
-    useEffect(() => {
-        // if (diskArr.length === 0) {
-        //     fetch('./disksmain.json')
-        //     .then(res=>res.json())
-        //     .then(res=>{
-        //         getDisks(res);
-        //         //console.log('disk',diskArr.length);
-        //     });
-        // };
-    })
     function showFilter(){
         if (show) {
             changeShow(false);
