@@ -1,5 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import config from "../../config";
 function PersonalGarage(){
+    const [garArr, setGarage] = useState([]);
+    useEffect(() => {
+        if (!garArr.length) {
+            fetch(`${config.apiUrl}/personal/garage`)
+            .then(res=>res.json())
+            .then(res=>{
+                setGarage(res);
+                return res;
+            });
+        }
+    });
     return(
         <div className="personal-garage">
             <div className="personal-garage__title">

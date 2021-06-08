@@ -1,7 +1,7 @@
 import React from 'react';
 function PersonalDisk(props){
     return(
-        <div className="favourite__disks-wrap">
+        // <div className="favourite__disks-wrap">
             <div className="favourite__disks-item">
                 <div className="personal-disk-delete">
                     <img src="/img/close.svg" alt="" />
@@ -15,7 +15,7 @@ function PersonalDisk(props){
                     <span>{props.item.name}</span>
                 </div>
             </div>
-        </div>
+        // </div>
     )
 }
 export default PersonalDisk;
