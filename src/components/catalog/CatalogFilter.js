@@ -13,11 +13,8 @@ function CatalogFilter(props){
     //Выбранные марка,модель
     const [markArr,setMarks] = useState([]);
     const [modelsArr,setModels] = useState([]);
-    const [currModel,setCurModel] = useState({});
-
-    // const [markArr,setMarks] = useState([]);
-    // const [modelsArr,setModels] = useState([]);
     // const [currModel,setCurModel] = useState({});
+
     useEffect(() => {
         if (markArr.length === 0) {
             fetch('./auto.json')
@@ -40,9 +37,11 @@ function CatalogFilter(props){
     function pickModel(name){
         //Сохраняет выбранную модель в состояние
         let pickModel = modelsArr.filter(model => model.name === name);
-        setCurModel(pickModel[0]);
+        // setCurModel(pickModel[0]);
 
         //window.history.pushState({}, '', `${window.location.pathname}/${pickModel[0].name}`);
+        // Поиск дисков по модели
+        props.searchDisks(defaultMarka,pickModel[0].name);
         // Имя модели в фильтре
         setDefModel(pickModel[0].name);
 
@@ -51,22 +50,13 @@ function CatalogFilter(props){
     }
     function sbrosFilter (){
         //Сбрасывает все на стандартные значения
+        //window.history.pushState({}, '', `/catalog`);
         setDefMarka('Марка');
         setDefModel('Модель');
-        setCurModel({});
         setModels([]);
+        // props.setDisk([]);
         props.toggleFilter(false);
     }
-    // function pickMark(name){
-    //     let pickArr = markArr.filter(markaArr => markaArr.name === name);
-    //     setModels(pickArr[0].models);
-    //     // Имя марки в фильтре
-    //     setDefMarka(pickArr[0].name);
-    // }
-    // function pickModel(name){
-    //     let pickModel = modelsArr.filter(model => model.name === name);
-    //     setCurModel(pickModel[0]);
-    // }
     return (
         <div className={`catalog-filter ${props.showFilter ? "filter-show" : ""}`}>
                 <div className="catalog-filer__overlay" onClick={() => props.toggleFilter(false)}></div>
@@ -79,7 +69,7 @@ function CatalogFilter(props){
                         <FilterAuto filtername="Модель" name={defaultModel} item={modelsArr} pickFunction={pickModel}/>
 
                         <div className="catalog-filter__list-section_btn">
-                            <div className="filter-btn">Сбросить</div>
+                            <div className="filter-btn" onClick={() => sbrosFilter()}>Сбросить</div>
                         </div>
                     </div>
                     <div className="catalog-filter__list-section">
@@ -87,9 +77,9 @@ function CatalogFilter(props){
                             <span>По параметрам</span>
                         </div>
                         {
-                            paramArr.map((item,index)=>{
+                            props.filterProps.map((item,index)=>{
                                 return (
-                                    <FilterParam key={index} item={item}/>
+                                    <FilterParam key={index} name={item.name} items={item.values}/>
                                 )
                             })
                         }

@@ -31,7 +31,7 @@ function ConstructorPage(){
         });
     }
     useEffect(()=>{
-        if (!diskArr.length && marka && model && !window.location.pathname == "/constructor") {
+        if (!diskArr.length && marka && model && window.location.pathname !== "/constructor") {
             console.log('поиск дисков из page');
             searchDisks(marka,model);
         }

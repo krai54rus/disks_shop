@@ -22,7 +22,7 @@ function ConstructorFilter(props){
         }else{
             console.log(`применяет все ${marka} ${model}`);
             console.log(window.location.pathname);
-            if (!window.location.pathname == "/constructor") {
+            if (window.location.pathname !== "/constructor") {
                 // Если в параметрах URL'а есть марка и модель - применяет их
                 if (marka && markArr.length && modelsArr.length === 0) {
                     // const markName = marka.replaceAll('-',' ');
