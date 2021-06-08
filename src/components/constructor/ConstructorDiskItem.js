@@ -4,7 +4,7 @@ function ConstructorDiskItem(props){
             <div className="constr-disks__list_item" onClick={()=>props.pickDisk(props.item)}>
                 <div className="constr-disks__list_item-top">
                     <div className="constr-disks__list_item-img">
-                        <img src={`/img/constr-${props.item.img}`} alt=""/>
+                        <img src={`/img/${props.item.img}`} alt=""/>
                     </div>
                 </div>
 

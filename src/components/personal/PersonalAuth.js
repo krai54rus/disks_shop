@@ -4,7 +4,8 @@ function PersonalAuth(){
         <div className="personal-auth">
             <div className="personal-auth__form">
                 <div className="auth__form_title">
-                    <span>Авторизация</span>
+                    {/* <h2>Авторизация</h2> */}
+                    <img src="/img/user-white.svg" alt="" />
                 </div>
                 <div className="auth__form_elements">
                     <div className="auth__form_inputs">
@@ -16,8 +17,11 @@ function PersonalAuth(){
                         </div>
                     </div>
                     <div className="auth__form_inputs-button">
-                        <div className="auth__form_inputs-button_btn">Вход</div>
+                        <div className="auth__form_inputs-button_btn">ВОЙТИ</div>
                     </div>
+                </div>
+                <div className="to-register">
+                    <span>Регистрация</span>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 function ConstructorPicture(props){
     // const [diskArr,getDisks] = useState([]);
     useEffect(() => {
-        console.log(props);
+        // console.log(props);
     })
     return (
         <div className="constr-pic">
@@ -54,11 +54,11 @@ function ConstructorPicture(props){
                                         </div>
                                         <div className="constr-pic__info-disk_prop prop-et">
                                             <span>Вылет (ET)</span>
-                                            <span>{props.disk.et}</span>
+                                            <span>{props.disk.ET}</span>
                                         </div>
                                         <div className="constr-pic__info-disk_prop prop-dia">
                                             <span>DIA</span>
-                                            <span>{props.disk.dia}</span>
+                                            <span>{props.disk.DIA}</span>
                                         </div>
                                     </div>
                                     <div className="constr-pic__fon_info-btn">

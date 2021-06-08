@@ -5,7 +5,7 @@ function CatalogSection(props){
         <div className="catalog-section">
                 <div className="catalog-disks__title">
                     <h1 className="catalog-disks__title-text">Диски</h1>
-                    <span className="catalog-disks__title-count">Найдено: {props.disks.length}</span>
+                    <span className="catalog-disks__title-count">Дисков найдено: {props.disks.length}</span>
                 </div>
                 <div className="catalog-disks__list">
                     {

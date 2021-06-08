@@ -1,6 +1,7 @@
 [
     {
         "name":"BMW",
+        "icon":"icon-bmw.png",
         "models":[
             {
                 "name":"x5",
@@ -41,6 +42,7 @@
     },
     {
         "name":"Mercedes",
+        "icon":"icon-mercedes.png",
         "models":[
             {
                 "name":"E-class",
@@ -67,6 +69,7 @@
     },
     {
         "name":"Mazda",
+        "icon":"icon-mazda.png",
         "models":[
             {
                 "name":"CX-5",
@@ -93,6 +96,7 @@
     },
     {
         "name":"Toyota",
+        "icon":"icon-toyota.png",
         "models":[
             {
                 "name":"Land Cruiser 200",
@@ -118,4 +122,3 @@
         ]
     }
   ]
-  

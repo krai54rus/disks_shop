@@ -5,7 +5,7 @@ function ConstructorDisks(props){
         <div className="constr-section">
                 <div className="constr-disks__top">
                     {/* <h1 className="constr-disks__top-text">Диски</h1> */}
-                    <span className="constr-disks__top-count">Найдено: {props.disks.length}</span>
+                    <span className="constr-disks__top-count">Дисков найдено: {props.disks.length}</span>
                 </div>
                 <div className="constr-disks__list">
                     {

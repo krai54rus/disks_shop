@@ -5,13 +5,13 @@ function Footer(){
             <div className="container">
             <div className="footer-items">
                 <div className="footer-items__item">
-                    <span>Hot Wheels</span>
+                    <span>HotWheels</span>
                 </div>
                 <div className="footer-items__item">
                     <span>+7 (989) 989-98-99</span>
                 </div>
                 <div className="footer-items__item">
-                    <span>© 2002-2021 "Discoland"</span>
+                    <span>© 2002-2021 "HotWheels"</span>
                 </div>
             </div>
             </div>

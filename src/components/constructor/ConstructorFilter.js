@@ -20,17 +20,22 @@ function ConstructorFilter(props){
                 setMarks(res);
             });
         }else{
-            // Если в параметрах URL'а есть марка и модель - применяет их
-            if (marka && markArr.length && modelsArr.length === 0) {
-                // const markName = marka.replaceAll('-',' ');
-                // console.log(marka);
-                pickMark(marka);
+            console.log(`применяет все ${marka} ${model}`);
+            console.log(window.location.pathname);
+            if (!window.location.pathname == "/constructor") {
+                // Если в параметрах URL'а есть марка и модель - применяет их
+                if (marka && markArr.length && modelsArr.length === 0) {
+                    // const markName = marka.replaceAll('-',' ');
+                    // console.log(marka);
+                    pickMark(marka);
+                }
+                if (model && modelsArr.length && Object.keys(currModel).length === 0) {
+                    // const modelName = model.replaceAll('-',' ');
+                    // console.log(modelName);
+                    pickModel(model);
+                }
             }
-            if (model && modelsArr.length && Object.keys(currModel).length === 0) {
-                // const modelName = model.replaceAll('-',' ');
-                // console.log(modelName);
-                pickModel(model);
-            }
+
         }
     })
     function pickMark(name){
@@ -46,21 +51,25 @@ function ConstructorFilter(props){
         //Сохраняет выбранную модель в состояние
         let pickModel = modelsArr.filter(model => model.name === name);
         setCurModel(pickModel[0]);
-
-        window.history.pushState({}, '', `${window.location.pathname}/${pickModel[0].name}`);
+        let modelUrl = window.location.pathname.split('/');
+        window.history.pushState({}, '', `/${modelUrl[1]}/${modelUrl[2]}/${pickModel[0].name}`);
         // Имя модели в фильтре
         setDefModel(pickModel[0].name);
 
+        // Поиск дисков по модели
+        props.searchDisks(defaultMarka,pickModel[0].name);
         // Ставит img модели и закрывает фильтр
         props.setPicture(pickModel[0]);
         props.toggleFilter(false);
     }
     function sbrosFilter (){
         //Сбрасывает все на стандартные значения
+        window.history.pushState({}, '', `/constructor`);
         setDefMarka('Марка');
         setDefModel('Модель');
         setCurModel({});
         setModels([]);
+        props.setDisk([]);
         props.setPicture({});
         props.toggleFilter(false);
     }
