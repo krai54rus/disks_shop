@@ -4,9 +4,12 @@ import CatalogFilterMobile from '../catalog/CatalogFilterMobile';
 import CatalogSection from '../catalog/CatalogSection';
 import config from '../../config' ;
 function CatalogPage(){
-    // const [diskArr,setDisk] = useState([{"name":"disk1"},{"name":"disk2"},{"name":"disk3"},{"name":"disk4"},{"name":"disk1"},{"name":"disk2"},{"name":"disk3"},{"name":"disk4"}]);
+    // Диски каталога
     const [diskArr,setDisk] = useState([]);
     const [showFilter,toggleFilter] = useState(false);
+
+    const [filterDisk,setFilterDisk] = useState([]);
+    // Объект фильтров для дисков по параметрам
     const filtObj = [
         {
             name:"Диаметр",
@@ -25,22 +28,23 @@ function CatalogPage(){
     function toggleFilterFunc(show = false) {
         toggleFilter(show);
     }
-    useEffect(()=>{
-        if (!diskArr.length) {
-            fetch(`${config.apiUrl}/disks/all`)
-            .then(res=>res.json())
-            .then(res=>{
-                setDisk(res);
-                makeSortParams(res);
-                return res;
-            });
-        }
-    })
+    
+    function getAllDisks(){
+        fetch(`${config.apiUrl}/disks/all`)
+        .then(res=>res.json())
+        .then(res=>{
+            setDisk(res);
+            setFilterDisk(res);
+            makeSortParams(res);
+            return res;
+        });
+    }
     function searchDisks(searchMark,searchModel){
         fetch(`${config.apiUrl}/catalog?marka=${searchMark}&model=${searchModel}`)
         .then(res=>res.json())
         .then(res=>{
             setDisk(res);
+            setFilterDisk(res);
             makeSortParams(res);
             return res;
         });
@@ -61,27 +65,51 @@ function CatalogPage(){
         const filterArr = [
             {
                 name:"Диаметр",
+                filter:"size",
                 values:arrSize,
             },
             {
-                name:"ET",
-                values:arrDIA,
+                name:"Вылет (ET)",
+                filter:"ET",
+                values:arrET,
             },
             {
                 name:"DIA",
-                values:arrET,
+                filter:"DIA",
+                values:arrDIA,
             }
         ];
-        console.log(filterArr);
         setFilterProps(filterArr);
     }
+    function filterDisks(filter,value){
+        console.log(filter);
+        console.log(value);
+        console.log(diskArr);
+        const resFilter = diskArr.filter((item,index)=> item[filter] == value);
+        console.log(resFilter);
+        setFilterDisk(resFilter);
+        // makeSortParams(res);
+    }
+    useEffect(()=>{
+        if (!diskArr.length) {
+            getAllDisks();
+        }
+    })
     return(
         <div className="сatalog-page">
             <div className="container">
                 <div className="catalog-wrapper">
                     <CatalogFilterMobile showFilter={showFilter} toggleFilter={toggleFilterFunc} />
-                    <CatalogFilter filterProps={filterProps} searchDisks={searchDisks} setDisk={setDisk} showFilter={showFilter} toggleFilter={toggleFilterFunc} />
-                    <CatalogSection disks={diskArr}/>
+                    <CatalogFilter 
+                    getAllDisks={getAllDisks}
+                    filterDisks={filterDisks} 
+                    filterProps={filterProps} 
+                    searchDisks={searchDisks} 
+                    setDisk={setDisk} 
+                    showFilter={showFilter} 
+                    toggleFilter={toggleFilterFunc} 
+                    />
+                    <CatalogSection disks={filterDisk}/>
                 </div>
             </div>
         </div>

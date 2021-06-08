@@ -18,12 +18,9 @@ function FilterParam(props){
             changeShow(true);
         }
     }
-    function clickFilter(){
-        return true;
-    }
     return (
-        <div className="catalog-filter__list_item" onClick={() => showFilter()}>
-            <div className="catalog-filter-name">
+        <div className="catalog-filter__list_item">
+            <div className="catalog-filter-name" onClick={() => showFilter()}>
                 <span>{props.name}</span>
                 <img className={` ${show ? "arrow-scale" : ""}`} src="./img/arrow-down.svg" alt="" />
             </div>
@@ -32,7 +29,7 @@ function FilterParam(props){
                 {
                     props.items.map((item,index)=>{
                         return(
-                            <div onClick={() => clickFilter()} key={index} className="catalog-filter-values__item">
+                            <div onClick={() => props.filterDisks(props.filter,item)} key={index} className="catalog-filter-values__item">
                                 <span>{item}</span>
                             </div>
                         )

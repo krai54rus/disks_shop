@@ -62,7 +62,7 @@ function ConstructorPicture(props){
                                         </div>
                                     </div>
                                     <div className="constr-pic__fon_info-btn">
-                                        <div className="info-btn-save">Сохранить комплектацию</div>
+                                        <div className="info-btn-save">Добавить в Гараж</div>
                                     </div>
                                 </div>
                             </div>

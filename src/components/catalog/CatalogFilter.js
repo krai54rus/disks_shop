@@ -54,8 +54,8 @@ function CatalogFilter(props){
         setDefMarka('Марка');
         setDefModel('Модель');
         setModels([]);
-        // props.setDisk([]);
         props.toggleFilter(false);
+        props.getAllDisks();
     }
     return (
         <div className={`catalog-filter ${props.showFilter ? "filter-show" : ""}`}>
@@ -79,7 +79,7 @@ function CatalogFilter(props){
                         {
                             props.filterProps.map((item,index)=>{
                                 return (
-                                    <FilterParam key={index} name={item.name} items={item.values}/>
+                                    <FilterParam filterDisks={props.filterDisks} key={index} filter={item.filter} name={item.name} items={item.values}/>
                                 )
                             })
                         }

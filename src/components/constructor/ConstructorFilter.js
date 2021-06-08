@@ -20,47 +20,52 @@ function ConstructorFilter(props){
                 setMarks(res);
             });
         }else{
-            console.log(`применяет все ${marka} ${model}`);
-            console.log(window.location.pathname);
             if (window.location.pathname !== "/constructor") {
                 // Если в параметрах URL'а есть марка и модель - применяет их
                 if (marka && markArr.length && modelsArr.length === 0) {
                     // const markName = marka.replaceAll('-',' ');
                     // console.log(marka);
-                    pickMark(marka);
+                    pickMarkFunc(marka);
                 }
                 if (model && modelsArr.length && Object.keys(currModel).length === 0) {
                     // const modelName = model.replaceAll('-',' ');
                     // console.log(modelName);
-                    pickModel(model);
+                    pickModelFunc(model);
                 }
             }
-
         }
     })
-    function pickMark(name){
+    function pickMarkFunc(name){
         //Сохраняет выбранную марку в состояние
         let pickArr = markArr.filter(markaArr => markaArr.name === name);
-        setModels(pickArr[0].models);
-
-        window.history.pushState({}, '', `/constructor/${pickArr[0].name}`);
-        // Имя марки в фильтре
-        setDefMarka(pickArr[0].name);
+        console.log(pickArr);
+        if (pickArr.length) {
+            setModels(pickArr[0].models);
+            window.history.pushState({}, '', `/constructor/${pickArr[0].name}`);
+            // Имя марки в фильтре
+            setDefMarka(pickArr[0].name);
+        }
     }
-    function pickModel(name){
+    function pickModelFunc(name){
         //Сохраняет выбранную модель в состояние
         let pickModel = modelsArr.filter(model => model.name === name);
-        setCurModel(pickModel[0]);
-        let modelUrl = window.location.pathname.split('/');
-        window.history.pushState({}, '', `/${modelUrl[1]}/${modelUrl[2]}/${pickModel[0].name}`);
-        // Имя модели в фильтре
-        setDefModel(pickModel[0].name);
+        console.log(pickModel);
+        if (pickModel.length) {
+            setCurModel(pickModel[0]);
+            let modelUrl = window.location.pathname.split('/');
+            window.history.pushState({}, '', `/${modelUrl[1]}/${modelUrl[2]}/${pickModel[0].name}`);
+            // Имя модели в фильтре
+            setDefModel(pickModel[0].name);
 
-        // Поиск дисков по модели
-        props.searchDisks(defaultMarka,pickModel[0].name);
-        // Ставит img модели и закрывает фильтр
-        props.setPicture(pickModel[0]);
-        props.toggleFilter(false);
+            // Поиск дисков по модели
+            props.searchDisks(defaultMarka,pickModel[0].name);
+            // Убирает текущие диски
+            props.pickDisk([]);
+            // Ставит img модели и закрывает фильтр
+            props.setPicture(pickModel[0]);
+            props.toggleFilter(false);
+        }
+        
     }
     function sbrosFilter (){
         //Сбрасывает все на стандартные значения
@@ -69,6 +74,7 @@ function ConstructorFilter(props){
         setDefModel('Модель');
         setCurModel({});
         setModels([]);
+        props.pickDisk({});
         props.setDisk([]);
         props.setPicture({});
         props.toggleFilter(false);
@@ -81,8 +87,8 @@ function ConstructorFilter(props){
                     <div className="catalog-filter__list-section_title">
                         <span>По автомобилю</span>
                     </div>
-                    <FilterAuto filtername="Марка" name={defaultMarka} item={markArr} pickFunction={pickMark}/>
-                    <FilterAuto filtername="Модель" name={defaultModel} item={modelsArr} pickFunction={pickModel}/>
+                    <FilterAuto filtername="Марка" name={defaultMarka} item={markArr} pickFunction={pickMarkFunc}/>
+                    <FilterAuto filtername="Модель" name={defaultModel} item={modelsArr} pickFunction={pickModelFunc}/>
 
                     <div className="catalog-filter__list-section_btn">
                         <div className="filter-btn" onClick={() => sbrosFilter()}>Сбросить</div>

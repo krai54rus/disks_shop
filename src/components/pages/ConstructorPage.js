@@ -32,7 +32,6 @@ function ConstructorPage(){
     }
     useEffect(()=>{
         if (!diskArr.length && marka && model && window.location.pathname !== "/constructor") {
-            console.log('поиск дисков из page');
             searchDisks(marka,model);
         }
     })
@@ -42,7 +41,7 @@ function ConstructorPage(){
                 <div className="constructor-wrapper">
                     <div className="constructor-wrapper-auto">
                         <CatalogFilterMobile showFilter={showFilter} toggleFilter={toggleFilterFunc} />
-                        <ConstructorFilter setDisk={setDisk} searchDisks={searchDisks} showFilter={showFilter} toggleFilter={toggleFilterFunc} setPicture={setPicture} />
+                        <ConstructorFilter pickDisk={diskApply} setDisk={setDisk} searchDisks={searchDisks} showFilter={showFilter} toggleFilter={toggleFilterFunc} setPicture={setPicture} />
                         <ConstructorPicture pictureModel={pictureModel} disk={diskApp}/>
                     </div>
                     <div className="constructor-wrapper-disks">
