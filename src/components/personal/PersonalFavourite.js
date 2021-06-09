@@ -6,7 +6,8 @@ function PersonalFavourite(){
     const [diskArr, setDisk] = useState([]);
     useEffect(() => {
         if (!diskArr.length) {
-            fetch(`${config.apiUrl}/personal/disks`)
+            const userLogin = document.cookie.match(/login=(.+?)(;|$)/);
+            fetch(`${config.apiUrl}/personal/disks?login=${userLogin[1]}`)
             .then(res=>res.json())
             .then(res=>{
                 setDisk(res);

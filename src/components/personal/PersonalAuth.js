@@ -39,13 +39,17 @@ function PersonalAuth(props){
             fetch(`${config.apiUrl}/personal/auth?login=${login.current.value}&password=${password.current.value}`)
             .then(res=>res.json())
             .then(res=>{
-                document.cookie = "isAuth=auth"; 
-                props.setAuth(true);
                 console.log(res);
+                if (res.status == "OK") {
+                    document.cookie = "isAuth=auth";
+                    document.cookie = `login=${res.result.login}`;
+                    props.setUserInfo(res.result);
+                    props.setAuth(true);
+                }else{
+                    setAuthError(res.result);
+                }
             });
-            console.log('auth go!');
         }
-        
     }
     function goRegister(){
         const resValidate = validate(true);
@@ -55,8 +59,15 @@ function PersonalAuth(props){
             .then(res=>res.json())
             .then(res=>{
                 console.log(res);
+                if (res.status == "OK") {
+                    document.cookie = "isAuth=auth";
+                    document.cookie = `login=${res.result.login}`;
+                    props.setUserInfo(res.result);
+                    props.setAuth(true);
+                }else{
+                    setAuthError(res.result);
+                }
             })
-            console.log('register go!');
         }
     }
     return(
@@ -74,19 +85,19 @@ function PersonalAuth(props){
                                 <input ref={password} type="text" placeholder="Пароль"/>
                             </div>
                             {
-                                isRegister && 
+                                isRegister &&
                                 <div className="auth__form_inputs-input">
                                     <input ref={repPassword} type="text" placeholder="Подтверждение пароля"/>
                                 </div>
                             }
-                            
+
                         </div>
                         <div className="auth-error">
                             <span>{authError}</span>
                         </div>
                         <div className="auth__form_inputs-button">
                             {
-                                isRegister 
+                                isRegister
                                 ? <div className="auth__form_inputs-button_btn" onClick={() => goRegister()}>ЗАРЕГИСТРИРОВАТЬСЯ</div>
                                 : <div className="auth__form_inputs-button_btn" onClick={() => goAuth()}>ВОЙТИ</div>
                             }
