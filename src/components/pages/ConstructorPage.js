@@ -6,7 +6,11 @@ import CatalogFilterMobile from '../catalog/CatalogFilterMobile';
 import config from '../../config';
 import { useParams } from 'react-router';
 function ConstructorPage(){
+    // Текущие марка и модель
+    const [currAuto,setCurrAuto] = useState({});
+    // Диски модели
     const [diskArr,setDisk] = useState([]);
+    // Применяемый диск
     const [diskApp,setDiskApp] = useState({});
     //Параметры URL
     let { marka, model } = useParams();
@@ -30,6 +34,14 @@ function ConstructorPage(){
             return res;
         });
     }
+    function currAutoFunc(marka,model) {
+        const auto = {
+            marka,
+            model
+        }
+        setCurrAuto(auto);
+        // return `${marka} ${model}`;
+    }
     useEffect(()=>{
         if (!diskArr.length && marka && model && window.location.pathname !== "/constructor") {
             searchDisks(marka,model);
@@ -41,8 +53,16 @@ function ConstructorPage(){
                 <div className="constructor-wrapper">
                     <div className="constructor-wrapper-auto">
                         <CatalogFilterMobile showFilter={showFilter} toggleFilter={toggleFilterFunc} />
-                        <ConstructorFilter pickDisk={diskApply} setDisk={setDisk} searchDisks={searchDisks} showFilter={showFilter} toggleFilter={toggleFilterFunc} setPicture={setPicture} />
-                        <ConstructorPicture pictureModel={pictureModel} disk={diskApp}/>
+                        <ConstructorFilter
+                            currAutoFunc={currAutoFunc}
+                            pickDisk={diskApply}
+                            setDisk={setDisk}
+                            searchDisks={searchDisks}
+                            showFilter={showFilter}
+                            toggleFilter={toggleFilterFunc}
+                            setPicture={setPicture}
+                        />
+                        <ConstructorPicture currAuto={currAuto} pictureModel={pictureModel} disk={diskApp}/>
                     </div>
                     <div className="constructor-wrapper-disks">
                         <ConstructorDisks disks={diskArr} pickDisk={diskApply}/>

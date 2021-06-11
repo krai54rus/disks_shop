@@ -1,9 +1,28 @@
 import React, { useEffect } from 'react';
+import config from '../../config';
 function ConstructorPicture(props){
     // const [diskArr,getDisks] = useState([]);
     useEffect(() => {
-        // console.log(props);
+       //console.log(props);
     })
+    function saveGarage(){
+        console.log(props);
+        let login = document.cookie.match(/login=(.+?)(;|$)/)[1];
+        if (login && login.length) {
+            fetch(`${config.apiUrl}/personal/garage`,{
+                method:"POST",
+                body:JSON.stringify({
+                    login: login[0],
+                    garage: props.currAuto
+                })
+            })
+            .then(res=>res.json())
+            .then(res=>{
+                console.log(res);
+                return res;
+            });
+        }
+    }
     return (
         <div className="constr-pic">
                 <div className="constr-pic__wrap">
@@ -62,7 +81,7 @@ function ConstructorPicture(props){
                                         </div>
                                     </div>
                                     <div className="constr-pic__fon_info-btn">
-                                        <div className="info-btn-save">Добавить в Гараж</div>
+                                        <div className="info-btn-save" onClick={()=> saveGarage()}>Добавить в Гараж</div>
                                     </div>
                                 </div>
                             </div>

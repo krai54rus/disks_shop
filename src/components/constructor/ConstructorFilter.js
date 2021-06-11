@@ -6,6 +6,7 @@ function ConstructorFilter(props){
     //Выбранные марка,модель
     const [markArr,setMarks] = useState([]);
     const [modelsArr,setModels] = useState([]);
+    const [currMarka,setCurMarka] = useState({});
     const [currModel,setCurModel] = useState({});
     //Значения фильтра
     const [defaultMarka, setDefMarka] = useState('Марка');
@@ -41,6 +42,7 @@ function ConstructorFilter(props){
         console.log(pickArr);
         if (pickArr.length) {
             setModels(pickArr[0].models);
+            setCurMarka(pickArr[0]);
             window.history.pushState({}, '', `/constructor/${pickArr[0].name}`);
             // Имя марки в фильтре
             setDefMarka(pickArr[0].name);
@@ -52,6 +54,10 @@ function ConstructorFilter(props){
         console.log(pickModel);
         if (pickModel.length) {
             setCurModel(pickModel[0]);
+            // Объекты выбранных марка и модель для сохранения в гараж
+            props.currAutoFunc(currMarka,pickModel[0]);
+
+            // Смена урла при выборе фильтра
             let modelUrl = window.location.pathname.split('/');
             window.history.pushState({}, '', `/${modelUrl[1]}/${modelUrl[2]}/${pickModel[0].name}`);
             // Имя модели в фильтре
@@ -65,7 +71,7 @@ function ConstructorFilter(props){
             props.setPicture(pickModel[0]);
             props.toggleFilter(false);
         }
-        
+
     }
     function sbrosFilter (){
         //Сбрасывает все на стандартные значения
