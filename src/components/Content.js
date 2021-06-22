@@ -7,6 +7,7 @@ import MainPage from './pages/MainPage.js';
 import CatalogPage from './pages/CatalogPage.js';
 import ConstructorPage from './pages/ConstructorPage.js';
 import PersonalPage from './pages/PersonalPage.js';
+import CartPage from './pages/CartPage.js';
 import Page404 from './pages/Page404';
 function Content(){
     return(
@@ -23,6 +24,9 @@ function Content(){
                 </Route>
                 <Route exact path="/personal">
                     <PersonalPage />
+                </Route>
+                <Route exact path="/cart">
+                    <CartPage />
                 </Route>
                 <Route component={Page404} />
             </Switch>

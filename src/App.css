@@ -555,8 +555,18 @@ a{
   border-radius: 7px;
   padding: 15px;
   position: relative;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.catalog-disks__list_item:hover .disk-favorite{
+  display: block;
+}
+.catalog-disks__list_item:hover{
+  border: 1px solid #c1c8ca;
+  box-shadow: 0px 0px 15px 0px #c1c8ca;
 }
 .disk-favorite{
+  display: none;
   position: absolute;
   right: 15px;
   top: 15px;
@@ -665,9 +675,19 @@ a{
   align-items: center;
   margin: 5px 0px;
 }
-.catalog-disks__list_item-price{
+.catalog-disks__list_item-buy{
   margin-top: 10px;
-  text-align: end;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.catalog-disks__list_item-price{
+  font-weight: 600;
+  font-size: 20px;
+}
+.catalog-disks__list_item-cart{
+  width: 30px;
+  height: 30px;
 }
 /* .catalog-disks__list_item-bottom{
 

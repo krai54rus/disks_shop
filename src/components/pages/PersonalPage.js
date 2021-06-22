@@ -12,7 +12,7 @@ function PersonalPage(){
             const isAuthCooke = document.cookie.match(/isAuth=(.+?)(;|$)/);
             const userLogin = document.cookie.match(/login=(.+?)(;|$)/);
             if (isAuthCooke && isAuthCooke.length && isAuthCooke[1] === 'auth') {
-                if (userInfo.length === 0) {
+                if (userInfo.length === 0 && userLogin && userLogin.length) {
                     fetch(`${config.apiUrl}/personal/info?login=${userLogin[1]}`)
                     .then(res=>res.json())
                     .then(res=>{
@@ -21,8 +21,8 @@ function PersonalPage(){
                         }
                         return res;
                     });
+                    setAuth(true);
                 }
-                setAuth(true);
             }
         }
     });

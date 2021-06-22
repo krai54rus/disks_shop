@@ -32,9 +32,15 @@ function CatalogDisk(props){
                     <span>DIA: </span>
                     <span>{props.item.DIA}</span>
                 </div>
-                <div className="catalog-disks__list_item-price">
-                    <span>{props.item.price} Р</span>
+                <div className="catalog-disks__list_item-buy">
+                    <div className="catalog-disks__list_item-price">
+                        <span>{props.item.price} Р</span>
+                    </div>
+                    <div className="catalog-disks__list_item-cart">
+                        <img src="/img/shopping-cart.svg" alt="" />
+                    </div>
                 </div>
+                
             </div>
             <div className="disk-favorite">
                 {
