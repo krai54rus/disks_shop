@@ -91,9 +91,9 @@ a{
   }
 }
 /* CONTENT */
-/* .content-wrapper{
-  display: ;
-} */
+.content-wrapper{
+  flex-grow: 1;
+}
 
 /* Main Page */
 
