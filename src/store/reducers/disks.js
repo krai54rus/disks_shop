@@ -1,6 +1,6 @@
 import config from "../../config";
-
-const disks = function(store,action){
+import initialState from "../initialState";
+const disks = function(store = initialState.disks ,action){
     switch(action.type){
         case 'GET_ALL':
             let diskAll = [];

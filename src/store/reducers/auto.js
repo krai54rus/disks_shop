@@ -1,18 +1,22 @@
 import config from "../../config";
-
-const auto = function(store,action){
+import initialState from "../initialState";
+const auto = function(store = initialState.auto ,action){
     switch(action.type){
         case 'GET_ALL':
-            let autoAll = [];
-            fetch(`${config.apiUrl}/auto`)
-            .then(res=>res.json())
-            .then(res=>{
-                autoAll = res;
-                return res;
-            });
-            return autoAll;
+            console.log(store);
+            return store;
         case 'GET_TOP':
             return [];
+        case 'SAVE_ALL':
+            // let autoAll = [];
+            const res = fetch(`${config.apiUrl}/auto`)
+            .then(res=>res.json())
+            .then(res=>{
+                // autoAll = res;
+                console.log(res);
+                return res;
+            });
+            return {...store, store:res};
         default:
             return store;
     }
