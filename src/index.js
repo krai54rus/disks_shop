@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 function counterReducer(state = { value: 0 }, action) {
@@ -17,7 +18,7 @@ function counterReducer(state = { value: 0 }, action) {
   }
 }
 
-let store = createStore(counterReducer)
+let store = createStore(counterReducer,applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.StrictMode>
