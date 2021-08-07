@@ -1,23 +1,23 @@
-export const FETCH_PRODUCTS_PENDING = 'FETCH_PRODUCTS_PENDING';
-export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS';
-export const FETCH_PRODUCTS_ERROR = 'FETCH_PRODUCTS_ERROR';
+export const FETCH_AUTO_PENDING = 'FETCH_AUTO_PENDING';
+export const FETCH_AUTO_SUCCESS = 'FETCH_AUTO_SUCCESS';
+export const FETCH_AUTO_ERROR = 'FETCH_AUTO_ERROR';
 
-function fetchProductsPending() {
+function fetchAUTOPending() {
     return {
-        type: FETCH_PRODUCTS_PENDING
-    }
+        type: FETCH_AUTO_PENDING
+    };
 }
 
-function fetchProductsSuccess(products) {
+function fetchAUTOSuccess(AUTO) {
     return {
-        type: FETCH_PRODUCTS_SUCCESS
-        products: products
-    }
+        type: FETCH_AUTO_SUCCESS,
+        AUTO: AUTO
+    };
 }
 
-function fetchProductsError(error) {
+function fetchAUTOError(error) {
     return {
-        type: FETCH_PRODUCTS_ERROR
+        type: FETCH_AUTO_ERROR,
         error: error
-    }
+    };
 }

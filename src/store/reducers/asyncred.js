@@ -4,7 +4,7 @@ import {FETCH_PRODUCTS_PENDING, FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_ERROR} fr
 
 const initialState = {
     pending: false,
-    products: [],
+    auto: [],
     error: null
 }
 
@@ -19,7 +19,7 @@ export function productsReducer(state = initialState, action) {
             return {
                 ...state,
                 pending: false,
-                products: action.payload
+                auto: action.payload
             }
         case FETCH_PRODUCTS_ERROR:
             return {
@@ -32,6 +32,6 @@ export function productsReducer(state = initialState, action) {
     }
 }
 
-export const getProducts = state => state.products;
+export const getProducts = state => state.auto;
 export const getProductsPending = state => state.pending;
 export const getProductsError = state => state.error;

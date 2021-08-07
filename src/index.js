@@ -6,19 +6,20 @@ import reportWebVitals from './reportWebVitals';
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
+import reducers from './store/reducers/reducers';
 
-function counterReducer(state = { value: 0 }, action) {
-  switch (action.type) {
-    case 'counter/incremented':
-      return { value: state.value + 1 }
-    case 'counter/decremented':
-      return { value: state.value - 1 }
-    default:
-      return state
-  }
-}
+// function counterReducer(state = { value: 0 }, action) {
+//   switch (action.type) {
+//     case 'counter/incremented':
+//       return { value: state.value + 1 }
+//     case 'counter/decremented':
+//       return { value: state.value - 1 }
+//     default:
+//       return state
+//   }
+// }
 
-let store = createStore(counterReducer,applyMiddleware(thunk))
+let store = createStore(reducers,applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.StrictMode>
