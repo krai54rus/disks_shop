@@ -7,8 +7,6 @@ const FETCH_AUTO_SUCCESS = 'FETCH_AUTO_SUCCESS';
 const FETCH_AUTO_ERROR = 'FETCH_AUTO_ERROR';
 const auto = function(store = initialState.auto ,action){
     switch(action.type){
-        case FETCH_AUTO_SUCCESS:
-            return { ...store, store: action.payload };
         case 'GET_STORE':
             return { ...store};
         case 'SAVE_ALL':
@@ -21,14 +19,21 @@ const auto = function(store = initialState.auto ,action){
                 return res;
             });
             return {...store, items:res};
+        case FETCH_AUTO_SUCCESS:
+            return { ...store, items: action.payload };
+        case FETCH_AUTO_PENDING:
+            return { ...store, pending: action.payload };
+        case FETCH_AUTO_ERROR:
+            return { ...store, error: action.payload };
         default:
             return store;
     }
 }
 
-export const fetchAUTOPending = () => {
+export const fetchAUTOPending = (bool) => {
     return {
-        type: FETCH_AUTO_PENDING
+        type: FETCH_AUTO_PENDING,
+        payload: bool,
     };
 }
 
@@ -39,9 +44,10 @@ export const fetchAUTOSuccess = (auto) => {
     };
 }
 
-export const fetchAUTOError = () => {
+export const fetchAUTOError = (bool) => {
     return {
-        type: FETCH_AUTO_ERROR
+        type: FETCH_AUTO_ERROR,
+        payload: bool,
     };
 }
 export default auto;

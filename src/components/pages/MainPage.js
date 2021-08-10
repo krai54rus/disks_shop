@@ -2,22 +2,22 @@ import React, { useEffect } from 'react';
 import MainBanner from '../main/MainBanner';
 import MainMarks from '../main/MainMarks';
 import MainDisks from '../main/MainDisks';
-import { connect, useDispatch, useSelector } from 'react-redux';
-import { getAuto } from '../../store/actions/autoActions';
+// import { connect, useDispatch, useSelector } from 'react-redux';
+// import { getAuto } from '../../store/actions/autoActions';
 function MainPage(props){
-    const dispatch = useDispatch();
-    const repos = useSelector(state => state.auto);
+    // const dispatch = useDispatch();
+    // const repos = useSelector(state => state.auto);
 
-    useEffect(()=>{
-        if (repos.length == 0) {
-            console.log(repos);
-            // console.log('dispatch getAuto');
-            // dispatch(getAuto());
-        }
-    })
+    // useEffect(()=>{
+    //     if (repos.length == 0) {
+    //         console.log(repos);
+    //         // console.log('dispatch getAuto');
+    //         // dispatch(getAuto());
+    //     }
+    // })
 
     function test() {
-        console.log(repos);
+        // console.log(repos);
     }
     return(
         <div className="main-page">

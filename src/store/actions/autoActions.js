@@ -3,20 +3,24 @@ import {fetchAUTOPending, fetchAUTOSuccess, fetchAUTOError} from '../reducers/au
 import config from "../../config";
 export const getAuto = () => {
     return async (dispatch) => {
-        try {
+        // try {
             dispatch(fetchAUTOPending(true))
             const getAuto = await fetch(`${config.apiUrl}/auto`)
             .then(res => res.json())
-            .then(res => res );
+            .then(res => res )
+            .catch(error => {
+                dispatch(fetchAUTOError(error));
+            });
             console.log('getAuto ',getAuto);
             dispatch(fetchAUTOSuccess(getAuto))
-        } catch (e) {
-            dispatch(fetchAUTOError(true))
             dispatch(fetchAUTOPending(false))
-            setTimeout(()=> {
-                dispatch(fetchAUTOError(false))
-            }, 2000)
-        }
+        // } catch (e) {
+        //     dispatch(fetchAUTOError(true))
+        //     dispatch(fetchAUTOPending(false))
+        //     setTimeout(()=> {
+        //         dispatch(fetchAUTOError(false))
+        //     }, 2000)
+        // }
 
     }
 }

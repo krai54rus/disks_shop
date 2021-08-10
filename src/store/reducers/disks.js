@@ -15,15 +15,20 @@ const disks = function(store = initialState.disks ,action){
             });
             return diskAll;
         case FETCH_DISKS_SUCCESS:
-            return [ ...store, action.payload ];
+            return { ...store, items: action.payload };
+        case FETCH_DISKS_PENDING:
+            return { ...store, pending: action.payload };
+        case FETCH_DISKS_ERROR:
+            return { ...store, error: action.payload };
         default:
             return store;
     }
 }
 
-export const fetchDISKSPending = () => {
+export const fetchDISKSPending = (bool) => {
     return {
-        type: FETCH_DISKS_PENDING
+        type: FETCH_DISKS_PENDING,
+        payload: bool,
     };
 }
 
@@ -34,9 +39,10 @@ export const fetchDISKSSuccess = (DISKS) => {
     };
 }
 
-export const fetchDISKSError = () => {
+export const fetchDISKSError = (bool) => {
     return {
-        type: FETCH_DISKS_ERROR
+        type: FETCH_DISKS_ERROR,
+        payload: bool,
     };
 }
 export default disks;

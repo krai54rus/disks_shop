@@ -1,6 +1,14 @@
-let auto = [];
+let auto = {
+	pending: false,
+	items: [],
+	error: false,
+};
 
-let disks = [];
+let disks = {
+	pending: false,
+	items: [],
+	error: false,
+};
 
 const initialState = {
 	auto,

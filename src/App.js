@@ -16,14 +16,14 @@ function App() {
   const auto = useSelector(state => state.auto);
   const disks = useSelector(state => state.disks);
     useEffect(()=>{
-        if (auto.length == 0) {
-            console.log('dispatch getAuto');
-            dispatch(getAuto());
-        }
-        if (disks.length == 0) {
-            console.log('dispatch getDisks');
-            dispatch(getDisks());
-        }
+      if (auto.items.length == 0 && !auto.pending) {
+          console.log('dispatch getAuto');
+          dispatch(getAuto());
+      }
+      if (disks.items.length == 0 && !disks.pending) {
+          console.log('dispatch getDisks');
+          dispatch(getDisks());
+      }
     })
   return (
       <Router>

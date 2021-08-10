@@ -91,15 +91,16 @@ function CatalogPage(){
         // makeSortParams(res);
     }
     useEffect(()=>{
-        console.log('catalogPage ', disksRedux);
-        if (!diskArr.length) {
-            getAllDisks();
-        }
-        // if (!disksRedux.items) {
-        //     setDisk(disksRedux.items);
-        //     setFilterDisk(disksRedux.items);
-        //     makeSortParams(disksRedux.items);
+        
+        // if (!diskArr.length) {
+        //     getAllDisks();
         // }
+        if (disksRedux.items.length && !diskArr.length) {
+            console.log('catalogPage ', disksRedux);
+            setDisk(disksRedux.items);
+            setFilterDisk(disksRedux.items);
+            makeSortParams(disksRedux.items);
+        }
     })
     return(
         <div className="сatalog-page">

@@ -5,7 +5,9 @@ import ConstructorDisks from '../constructor/ConstructorDisks';
 import CatalogFilterMobile from '../catalog/CatalogFilterMobile';
 import config from '../../config';
 import { useParams } from 'react-router';
+import { useSelector } from 'react-redux';
 function ConstructorPage(){
+    const disksRedux = useSelector(state => state.disks);
     // Текущие марка и модель
     const [currAuto,setCurrAuto] = useState({});
     // Диски модели
@@ -46,6 +48,7 @@ function ConstructorPage(){
         if (!diskArr.length && marka && model && window.location.pathname !== "/constructor") {
             searchDisks(marka,model);
         }
+        
     })
     return(
         <div className="constructor-page">
