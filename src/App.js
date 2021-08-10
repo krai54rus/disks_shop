@@ -6,18 +6,23 @@ import Footer from './components/Footer';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuto } from './store/actions/autoActions';
+import { getDisks } from './store/actions/disksActions';
 // import { createStore } from 'redux';
 // import reducers from './store/reducers/reducers';
 // const store = createStore(reducers, applyMiddleware(testmiddle));
 // const store = createStore(reducers);
 function App() {
   const dispatch = useDispatch();
-  const repos = useSelector(state => state.auto);
-
+  const auto = useSelector(state => state.auto);
+  const disks = useSelector(state => state.disks);
     useEffect(()=>{
-        if (repos.length == 0) {
+        if (auto.length == 0) {
             console.log('dispatch getAuto');
             dispatch(getAuto());
+        }
+        if (disks.length == 0) {
+            console.log('dispatch getDisks');
+            dispatch(getDisks());
         }
     })
   return (

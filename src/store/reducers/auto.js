@@ -20,7 +20,7 @@ const auto = function(store = initialState.auto ,action){
                 console.log(res);
                 return res;
             });
-            return {...store, store:res};
+            return {...store, items:res};
         default:
             return store;
     }

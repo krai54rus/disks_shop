@@ -3,11 +3,12 @@ import CatalogFilter from '../catalog/CatalogFilter';
 import CatalogFilterMobile from '../catalog/CatalogFilterMobile';
 import CatalogSection from '../catalog/CatalogSection';
 import config from '../../config' ;
+import { useSelector } from 'react-redux';
 function CatalogPage(){
     // Диски каталога
     const [diskArr,setDisk] = useState([]);
     const [showFilter,toggleFilter] = useState(false);
-
+    const disksRedux = useSelector(state => state.disks);
     const [filterDisk,setFilterDisk] = useState([]);
     // Объект фильтров для дисков по параметрам
     const filtObj = [
@@ -28,9 +29,8 @@ function CatalogPage(){
     function toggleFilterFunc(show = false) {
         toggleFilter(show);
     }
-    
     function getAllDisks(){
-        fetch(`${config.apiUrl}/disks/all`)
+        fetch(`${config.apiUrl}/disks`)
         .then(res=>res.json())
         .then(res=>{
             setDisk(res);
@@ -91,23 +91,29 @@ function CatalogPage(){
         // makeSortParams(res);
     }
     useEffect(()=>{
+        console.log('catalogPage ', disksRedux);
         if (!diskArr.length) {
             getAllDisks();
         }
+        // if (!disksRedux.items) {
+        //     setDisk(disksRedux.items);
+        //     setFilterDisk(disksRedux.items);
+        //     makeSortParams(disksRedux.items);
+        // }
     })
     return(
         <div className="сatalog-page">
             <div className="container">
                 <div className="catalog-wrapper">
                     <CatalogFilterMobile showFilter={showFilter} toggleFilter={toggleFilterFunc} />
-                    <CatalogFilter 
+                    <CatalogFilter
                     getAllDisks={getAllDisks}
-                    filterDisks={filterDisks} 
-                    filterProps={filterProps} 
-                    searchDisks={searchDisks} 
-                    setDisk={setDisk} 
-                    showFilter={showFilter} 
-                    toggleFilter={toggleFilterFunc} 
+                    filterDisks={filterDisks}
+                    filterProps={filterProps}
+                    searchDisks={searchDisks}
+                    setDisk={setDisk}
+                    showFilter={showFilter}
+                    toggleFilter={toggleFilterFunc}
                     />
                     <CatalogSection disks={filterDisk}/>
                 </div>
