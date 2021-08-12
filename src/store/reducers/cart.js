@@ -1,4 +1,4 @@
-import config from "../../config";
+// import config from "../../config";
 import initialState from "../initialState";
 const FETCH_CART_PENDING = 'FETCH_CART_PENDING';
 const FETCH_CART_SUCCESS = 'FETCH_CART_SUCCESS';

@@ -7,7 +7,7 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import reducers from './store/reducers/reducers';
-
+import { CookiesProvider } from 'react-cookie';
 // function counterReducer(state = { value: 0 }, action) {
 //   switch (action.type) {
 //     case 'counter/incremented':
@@ -23,9 +23,11 @@ let store = createStore(reducers,applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <CookiesProvider>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </CookiesProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
