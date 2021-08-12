@@ -7,6 +7,7 @@ import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuto } from './store/actions/autoActions';
 import { getDisks } from './store/actions/disksActions';
+import { getCart } from './store/actions/cartActions';
 // import { createStore } from 'redux';
 // import reducers from './store/reducers/reducers';
 // const store = createStore(reducers, applyMiddleware(testmiddle));
@@ -15,16 +16,23 @@ function App() {
   const dispatch = useDispatch();
   const auto = useSelector(state => state.auto);
   const disks = useSelector(state => state.disks);
+  const cart = useSelector(state => state.cart);
     useEffect(()=>{
+      // Загрузка моделей/марок
       if (auto.items.length == 0 && !auto.pending) {
-          console.log('dispatch getAuto');
           dispatch(getAuto());
       }
+      // Загрузка дисков
       if (disks.items.length == 0 && !disks.pending) {
-          console.log('dispatch getDisks');
           dispatch(getDisks());
       }
     })
+    // Загрузка корзины из БД
+    useEffect(() => {
+      dispatch(getCart());
+      console.log('qwe');
+      console.log('qweqwe');
+    }, []);
   return (
       <Router>
         <div className="App">

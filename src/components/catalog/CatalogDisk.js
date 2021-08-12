@@ -8,6 +8,9 @@ function CatalogDisk(props){
             setfavorite(true);
         }
     }
+    function addToCart() {
+        console.log(props);
+    }
     return (
         <div className="catalog-disks__list_item">
             <div className="catalog-disks__list_item-top">
@@ -36,8 +39,9 @@ function CatalogDisk(props){
                     <div className="catalog-disks__list_item-price">
                         <span>{props.item.price} Р</span>
                     </div>
-                    <div className="catalog-disks__list_item-cart">
-                        <img src="/img/shopping-cart.svg" alt="" />
+                    <div className="catalog-disks__list_item-cart" onClick={()=>addToCart()}>
+                        {/* <span>В корзину</span> */}
+                        <img src="/img/shopping-cart-white.svg" alt="" />
                     </div>
                 </div>
                 

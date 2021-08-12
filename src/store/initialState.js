@@ -10,9 +10,16 @@ let disks = {
 	error: false,
 };
 
+let cart = {
+	pending: false,
+	items: [],
+	error: false,
+};
+
 const initialState = {
 	auto,
-	disks
+	disks,
+	cart
 };
 
 export default initialState;
