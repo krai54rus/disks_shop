@@ -1,10 +1,11 @@
 import config from "../config";
 export function getUniqueId(cookies, callback) {
+    console.log(cookies);
     if (!cookies.clientId) {
-        fetch(`${config.apiUrl}/users/uniqueId`, {
+        fetch(`${config.apiUrl}/personal/getUnique`, {
             method: "GET",
-            // credentials: "include",
-            // mode: "cors",
+            credentials: "include",
+            mode: "cors",
         })
         .then((response) => response.json())
         .then((res) => {

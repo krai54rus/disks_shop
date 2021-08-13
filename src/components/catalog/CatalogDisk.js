@@ -14,7 +14,7 @@ function CatalogDisk(props){
     function cartAdd() {
         console.log(props);
         const prodInfo = {
-            code: props.code,
+            code: props.item.code,
             count: 1,
         };
         dispatch(addToCart(prodInfo));
