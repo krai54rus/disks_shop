@@ -1,6 +1,7 @@
 [
     {
         "name":"Big Byz",
+        "code":"bigbyz",
         "size":17,
         "img":"bigbyz.png",
         "constrImg":"constr-bigbyz.png",
@@ -10,6 +11,7 @@
     },
     {
         "name":"Андорра",
+        "code":"andorra",
         "size":17,
         "img":"andorra.png",
         "constrImg":"constr-andorra.png",
@@ -19,6 +21,7 @@
     },
     {
         "name":"Акцент",
+        "code":"akcent",
         "size":17,
         "img":"akcent.png",
         "constrImg":"constr-akcent.png",
@@ -28,6 +31,7 @@
     },
     {
         "name":"Пандора",
+        "code":"pandora",
         "size":19,
         "img":"pandora.png",
         "constrImg":"constr-pandora.png",
@@ -37,6 +41,7 @@
     },
     {
         "name":"Омаха",
+        "code":"omaha",
         "size":17,
         "img":"omaha.png",
         "constrImg":"constr-omaha.png",
@@ -47,6 +52,7 @@
     },
     {
         "name":"Аламида",
+        "code":"alamida",
         "size":17,
         "img":"alamida.png",
         "constrImg":"constr-alamida.png",
@@ -57,6 +63,7 @@
     },
     {
         "name":"Барракуда",
+        "code":"barrakuda",
         "size":17,
         "img":"baracuda.png",
         "constrImg":"constr-baracuda.png",
@@ -66,6 +73,7 @@
     },
     {
         "name":"C.T.G.",
+        "code":"ctg",
         "size":18,
         "img":"ctg.png",
         "constrImg":"constr-ctg.png",
@@ -75,6 +83,7 @@
     },
     {
         "name":"Фриман",
+        "code":"friman",
         "size":17,
         "img":"friman.png",
         "constrImg":"constr-friman.png",
@@ -84,6 +93,7 @@
     },
     {
         "name":"Тортуга",
+        "code":"tortuga",
         "size":17,
         "img":"tortuga.png",
         "constrImg":"constr-tortuga.png",
@@ -93,6 +103,7 @@
     },
     {
         "name":"да Винчи",
+        "code":"davinchi",
         "size":17,
         "img":"davinchi.png",
         "constrImg":"constr-davinchi.png",
@@ -102,6 +113,7 @@
     },
     {
         "name":"Либерти",
+        "code":"liberty",
         "size":17,
         "img":"liberty.png",
         "constrImg":"constr-liberty.png",
@@ -111,6 +123,7 @@
     },
     {
         "name":"Атлас",
+        "code":"atlas",
         "size":20,
         "img":"atlas.png",
         "constrImg":"constr-atlas.png",
@@ -120,6 +133,7 @@
     },
     {
         "name":"Солар",
+        "code":"solar",
         "size":17,
         "img":"solar.png",
         "constrImg":"constr-solar.png",
@@ -130,6 +144,7 @@
     },
     {
         "name":"Мельбурн",
+        "code":"melburn",
         "size":17,
         "img":"melburn.png",
         "constrImg":"constr-melburn.png",
@@ -139,6 +154,7 @@
     },
     {
         "name":"Канцлер",
+        "code":"kancler",
         "size":18,
         "img":"cancler.png",
         "constrImg":"constr-cancler.png",
@@ -148,6 +164,7 @@
     },
     {
         "name":"Марвел",
+        "code":"marvel",
         "size":19,
         "img":"marvel.png",
         "constrImg":"constr-marvel.png",
@@ -157,6 +174,7 @@
     },
     {
         "name":"Каzантип",
+        "code":"kazantip",
         "size":18,
         "img":"kazantip.png",
         "constrImg":"constr-kazantip.png",
@@ -166,6 +184,7 @@
     },
     {
         "name":"Stiletto",
+        "code":"stilleto",
         "size":18,
         "img":"stiletto.png",
         "constrImg":"constr-stiletto.png",
@@ -175,6 +194,7 @@
     },
     {
         "name":"КС883",
+        "code":"kc883",
         "size":18,
         "img":"kc883.png",
         "constrImg":"constr-kc883.png",
