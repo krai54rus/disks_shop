@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../store/actions/cartActions';
 function CatalogDisk(props){
+    const dispatch = useDispatch();
     const [favorite, setfavorite] = useState(false);
     function addFavorite(){
         if (favorite) {
@@ -7,6 +10,14 @@ function CatalogDisk(props){
         }else{
             setfavorite(true);
         }
+    }
+    function cartAdd() {
+        console.log(props);
+        const prodInfo = {
+            code: props.item.code,
+            count: 1,
+        };
+        dispatch(addToCart(prodInfo));
     }
     return (
         <div className="catalog-disks__list_item">
@@ -32,17 +43,24 @@ function CatalogDisk(props){
                     <span>DIA: </span>
                     <span>{props.item.DIA}</span>
                 </div>
-                <div className="catalog-disks__list_item-price">
-                    <span>{props.item.price} Р</span>
+                <div className="catalog-disks__list_item-buy">
+                    <div className="catalog-disks__list_item-price">
+                        <span>{props.item.price} Р</span>
+                    </div>
+                    <div className="catalog-disks__list_item-cart" onClick={()=>cartAdd()}>
+                        {/* <span>В корзину</span> */}
+                        <img src="/img/shopping-cart-white.svg" alt="" />
+                    </div>
                 </div>
+
             </div>
             <div className="disk-favorite">
                 {
-                    favorite 
+                    favorite
                     ? <img onClick={()=> addFavorite()} src="/img/heart.svg" alt="" />
-                    : <img onClick={()=> addFavorite()} src="/img/heart-gray.svg" alt="" /> 
+                    : <img onClick={()=> addFavorite()} src="/img/heart-gray.svg" alt="" />
                 }
-                
+
             </div>
         </div>
     );

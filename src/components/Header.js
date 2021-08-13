@@ -29,6 +29,11 @@ function Header(props){
                             Личный кабинет
                         </Link>
                     </div>
+                    <div className="header-items___link header-items__right_link">
+                        <Link to="/cart">
+                            Корзина
+                        </Link>
+                    </div>
                 {/* </div> */}
             </div>
             </div>
