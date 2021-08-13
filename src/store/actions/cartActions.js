@@ -24,3 +24,22 @@ export const getCart = () => {
 
     }
 }
+
+export const addToCart = (prodInfo) => {
+    return async (dispatch) => {
+            dispatch(fetchCartPending(true))
+            const addToCart = await fetch(`${config.apiUrl}/cart/addToCart`,{
+                method:'POST',
+                body: JSON.stringify(prodInfo),
+            })
+            .then(res => res.json())
+            .then(res => res )
+            .catch(error => {
+                dispatch(fetchCartError(error));
+            });
+            console.log('addToCart ',addToCart);
+            dispatch(fetchCartSuccess(addToCart));
+            dispatch(fetchCartPending(false));
+
+    }
+}
