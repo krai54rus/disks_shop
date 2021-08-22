@@ -978,6 +978,7 @@ a{
   border: 1px solid #D8E1E4;
   border-radius: 7px;
   margin-right: 10px;
+  min-width: 310px;
 }
 .personal-right{
   border: 1px solid #D8E1E4;
@@ -987,7 +988,7 @@ a{
   align-items: flex-start;
   flex-direction: column;
   width: 100%;
-  padding: 0px 15px;
+  padding: 0px 15px 15px 15px;
 }
 .personal-favourite{
   max-width: 1060px;
@@ -1149,7 +1150,8 @@ a{
 .info__data_list_item{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
   font-size: 18px;
   margin: 5px 0px;
 }

@@ -2,37 +2,16 @@ import React, { useEffect, useState } from 'react';
 import PersonalDisk from './PersonalDisk';
 import config from "../../config";
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 function PersonalFavourite(){
     const [diskArr, setDisk] = useState([]);
+    const personal = useSelector(state => state.personal);
     useEffect(() => {
-        if (!diskArr.length) {
-            const userLogin = document.cookie.match(/login=(.+?)(;|$)/);
-            fetch(`${config.apiUrl}/personal/disks?login=${userLogin[1]}`)
-            .then(res=>res.json())
-            .then(res=>{
-                setDisk(res);
-                return res;
-            });
+        console.log(personal);
+        if (!diskArr.length && personal.disks && personal.disks.length) {
+            setDisk(personal.disks);
         }
-    });
-    // const diskList = useRef(null);
-    // function toLeft(){
-    //     let diskItem = document.querySelectorAll('.favourite__disks-wrap')[0];
-    //     let diskW = window.getComputedStyle(diskItem);
-    //     let diskListTr = window.getComputedStyle(diskList.current).transform;
-    //     console.log(diskW);
-    //     console.log(diskListTr);
-    //     diskList.current.style.transform = `translateX(212px)`;
-    // }
-    // function toRight(){
-    //     let diskItem = document.querySelectorAll('.favourite__disks-wrap')[0];
-    //     let diskW = window.getComputedStyle(diskItem).width;
-    //     let diskListTr = window.getComputedStyle(diskList.current);
-    //     console.log(diskW);
-    //     // console.log(diskW);
-    //     console.log(diskListTr);
-    //     diskList.current.style.transform = `translateX(-212px)`;
-    // }
+    },[personal.disks.length]);
     return(
         <div className="personal-favourite">
             <div className="personal-favourite__title">

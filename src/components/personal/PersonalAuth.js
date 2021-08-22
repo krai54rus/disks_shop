@@ -36,12 +36,24 @@ function PersonalAuth(props){
         const resValidate = validate();
         if (resValidate) {
             setAuthError('');
-            fetch(`${config.apiUrl}/personal/auth?login=${login.current.value}&password=${password.current.value}`)
+            const bodyReq = {
+                login: login.current.value,
+                password: password.current.value,
+            };
+            fetch(`${config.apiUrl}/personal/auth`,{
+                method:"POST",
+                headers: {
+                    "Content-Type": "application/json;charset=utf-8",
+                },
+                credentials: "include",
+                mode: "cors",
+                body: JSON.stringify(bodyReq),
+            })
             .then(res=>res.json())
             .then(res=>{
                 console.log(res);
                 if (res.status == "OK") {
-                    document.cookie = "isAuth=auth";
+                    document.cookie = `isAuth=${true}`;
                     document.cookie = `login=${res.result.login}`;
                     props.setUserInfo(res.result);
                     props.setAuth(true);
