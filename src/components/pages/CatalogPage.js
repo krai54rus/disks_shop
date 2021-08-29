@@ -6,9 +6,10 @@ import config from '../../config' ;
 import { useSelector } from 'react-redux';
 function CatalogPage(){
     // Диски каталога
+    const disksRedux = useSelector(state => state.disks);
+    const autoRedux = useSelector(state => state.auto);
     const [diskArr,setDisk] = useState([]);
     const [showFilter,toggleFilter] = useState(false);
-    const disksRedux = useSelector(state => state.disks);
     const [filterDisk,setFilterDisk] = useState([]);
     // Объект фильтров для дисков по параметрам
     const filtObj = [
@@ -30,24 +31,47 @@ function CatalogPage(){
         toggleFilter(show);
     }
     function getAllDisks(){
-        fetch(`${config.apiUrl}/disks`)
-        .then(res=>res.json())
-        .then(res=>{
-            setDisk(res);
-            setFilterDisk(res);
-            makeSortParams(res);
-            return res;
-        });
+        if (disksRedux.items.length) {
+            setDisk(disksRedux.items);
+            setFilterDisk(disksRedux.items);
+            makeSortParams(disksRedux.items);
+        }
+        // fetch(`${config.apiUrl}/disks`)
+        // .then(res=>res.json())
+        // .then(res=>{
+        //     setDisk(res);
+        //     setFilterDisk(res);
+        //     makeSortParams(res);
+        //     return res;
+        // });
     }
     function searchDisks(searchMark,searchModel){
-        fetch(`${config.apiUrl}/catalog?marka=${searchMark}&model=${searchModel}`)
-        .then(res=>res.json())
-        .then(res=>{
-            setDisk(res);
-            setFilterDisk(res);
-            makeSortParams(res);
-            return res;
-        });
+        if (disksRedux.items.length) {
+            const disks = searchFilter(searchMark,searchModel);
+            if (disks && disks.length) {
+                setDisk(disks);
+                setFilterDisk(disks);
+                makeSortParams(disks);
+            }
+        }
+        // fetch(`${config.apiUrl}/catalog?marka=${searchMark}&model=${searchModel}`)
+        // .then(res=>res.json())
+        // .then(res=>{
+        //     console.log('search /catalog ', res);
+        //     setDisk(res);
+        //     setFilterDisk(res);
+        //     makeSortParams(res);
+        //     return res;
+        // });
+    }
+    function searchFilter(mark,model){
+        const autoMark = autoRedux.items.find(item => item.name === mark);
+        if (autoMark) {
+            const autoModel = autoMark.models.find(item => item.name === model);
+            if (autoModel) {
+                return disksRedux.items.filter(item => autoModel.size.includes(item.size) );
+            }
+        }
     }
     function makeSortParams(arrDisk){
         let arrET = [];
@@ -58,10 +82,13 @@ function CatalogPage(){
             arrDIA.push(item.DIA);
             arrSize.push(item.size);
         });
+        function compareNumbers(a, b) {
+            return a - b;
+        }
         // Оставляем уникальные значения в массиве
-        arrET = Array.from(new Set(arrET));
-        arrDIA = Array.from(new Set(arrDIA));
-        arrSize = Array.from(new Set(arrSize));
+        arrET = Array.from(new Set(arrET)).sort(compareNumbers);
+        arrDIA = Array.from(new Set(arrDIA)).sort(compareNumbers);
+        arrSize = Array.from(new Set(arrSize)).sort(compareNumbers);
         const filterArr = [
             {
                 name:"Диаметр",

@@ -14,7 +14,7 @@ function PersonalPage(){
     const [userInfo, setUserInfo] = useState([]);
     const personal = useSelector(state => state.personal);
     useEffect(() => {
-        console.log('personalPage ', personal);
+        // console.log('personalPage ', personal);
         // if (personal.isAuth === '' && !personal.pending) {
         //     dispatch(checkAuth());
         // }

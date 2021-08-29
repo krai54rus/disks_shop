@@ -1,6 +1,9 @@
 import React, { useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import config from '../../config';
+import { authFunc, registerFunc } from '../../store/actions/personalActions';
 function PersonalAuth(props){
+    const dispatch = useDispatch();
     const [isRegister,setRegister] = useState(false);
     // const [regError,setRegError] = useState('');
     const [authError,setAuthError] = useState('');
@@ -36,50 +39,52 @@ function PersonalAuth(props){
         const resValidate = validate();
         if (resValidate) {
             setAuthError('');
-            const bodyReq = {
-                login: login.current.value,
-                password: password.current.value,
-            };
-            fetch(`${config.apiUrl}/personal/auth`,{
-                method:"POST",
-                headers: {
-                    "Content-Type": "application/json;charset=utf-8",
-                },
-                credentials: "include",
-                mode: "cors",
-                body: JSON.stringify(bodyReq),
-            })
-            .then(res=>res.json())
-            .then(res=>{
-                console.log(res);
-                if (res.status == "OK") {
-                    document.cookie = `isAuth=${true}`;
-                    document.cookie = `login=${res.result.login}`;
-                    props.setUserInfo(res.result);
-                    props.setAuth(true);
-                }else{
-                    setAuthError(res.result);
-                }
-            });
+            // const bodyReq = {
+            //     login: login.current.value,
+            //     password: password.current.value,
+            // };
+            dispatch(authFunc(login.current.value,password.current.value));
+            // fetch(`${config.apiUrl}/personal/auth`,{
+            //     method:"POST",
+            //     headers: {
+            //         "Content-Type": "application/json;charset=utf-8",
+            //     },
+            //     credentials: "include",
+            //     mode: "cors",
+            //     body: JSON.stringify(bodyReq),
+            // })
+            // .then(res=>res.json())
+            // .then(res=>{
+            //     console.log(res);
+            //     if (res.status == "OK") {
+            //         document.cookie = `isAuth=${true}`;
+            //         document.cookie = `login=${res.result.login}`;
+            //         props.setUserInfo(res.result);
+            //         props.setAuth(true);
+            //     }else{
+            //         setAuthError(res.result);
+            //     }
+            // });
         }
     }
     function goRegister(){
         const resValidate = validate(true);
         if (resValidate) {
             setAuthError('');
-            fetch(`${config.apiUrl}/personal/register?login=${login.current.value}&password=${password.current.value}`)
-            .then(res=>res.json())
-            .then(res=>{
-                console.log(res);
-                if (res.status == "OK") {
-                    document.cookie = "isAuth=auth";
-                    document.cookie = `login=${res.result.login}`;
-                    props.setUserInfo(res.result);
-                    props.setAuth(true);
-                }else{
-                    setAuthError(res.result);
-                }
-            })
+            dispatch(registerFunc(login.current.value,password.current.value));
+            // fetch(`${config.apiUrl}/personal/register?login=${login.current.value}&password=${password.current.value}`)
+            // .then(res=>res.json())
+            // .then(res=>{
+            //     console.log(res);
+            //     if (res.status == "OK") {
+            //         document.cookie = "isAuth=auth";
+            //         document.cookie = `login=${res.result.login}`;
+            //         props.setUserInfo(res.result);
+            //         props.setAuth(true);
+            //     }else{
+            //         setAuthError(res.result);
+            //     }
+            // })
         }
     }
     return(

@@ -23,6 +23,7 @@ const personal = {
 	disks:[],
 	garage: [],
 	error: false,
+	errorText: '',
 };
 
 const initialState = {

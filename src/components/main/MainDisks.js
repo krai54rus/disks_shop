@@ -3,17 +3,22 @@ import config from '../../config';
 import {
     Link,
   } from "react-router-dom";
+import { useSelector } from 'react-redux';
 function MainDisks(props){
     const [diskArr,getDisks] = useState([]);
+    const disks = useSelector(state => state.disks);
     useEffect(() => {
-        if (diskArr.length === 0) {
-            fetch(`${config.apiUrl}/main/disks`)
-            .then(res=>res.json())
-            .then(res=>{
-                getDisks(res);
-            });
+        if (diskArr.length === 0 && disks.items.length) {
+            const mainDisks = filterMainDisks();
+            // console.log('mainDisks ', mainDisks);
+            if (mainDisks && mainDisks.length) {
+                getDisks(mainDisks)
+            }
         };
     })
+    function filterMainDisks(){
+        return disks.items.filter((disk)=> disk.main === true);
+    }
     return (
         <div className="main-disks">
             <div className="container">

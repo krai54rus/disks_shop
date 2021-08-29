@@ -10,10 +10,11 @@ export const getAuto = () => {
             .then(res => res )
             .catch(error => {
                 dispatch(fetchAUTOError(error));
+                dispatch(fetchAUTOPending(false));
             });
             console.log('getAuto ',getAuto);
-            dispatch(fetchAUTOSuccess(getAuto))
-            dispatch(fetchAUTOPending(false))
+            dispatch(fetchAUTOSuccess(getAuto));
+            dispatch(fetchAUTOPending(false));
         // } catch (e) {
         //     dispatch(fetchAUTOError(true))
         //     dispatch(fetchAUTOPending(false))

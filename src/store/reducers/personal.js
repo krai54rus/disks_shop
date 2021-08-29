@@ -15,7 +15,7 @@ const personal = function(store = initialState.personal ,action){
         case FETCH_PERSONAL_ERROR:
             return { ...store, error: action.payload };
         case FETCH_PERSONAL_NO_AUTH:
-            return { ...store, isAuth: false };
+            return { ...store, isAuth: false, errorText: action.payload };
         default:
             return store;
     }
@@ -42,10 +42,10 @@ export const fetchPersonalError = (bool) => {
     };
 }
 
-export const fetchPersonalNoAuth = () => {
+export const fetchPersonalNoAuth = (errorText) => {
     return {
         type: FETCH_PERSONAL_NO_AUTH,
-        payload: false,
+        payload: errorText,
     };
 }
 export default personal;
