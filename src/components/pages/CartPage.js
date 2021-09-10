@@ -1,9 +1,10 @@
 import React from 'react';
+import CartSection from '../cart/CartSection';
 function CartPage(){
     return(
         <div className="cart-page">
             <div className="container">
-                Корзина
+            <CartSection></CartSection>
             </div>
         </div>
     )

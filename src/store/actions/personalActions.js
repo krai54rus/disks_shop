@@ -2,15 +2,16 @@
 import {fetchPersonalPending, fetchPersonalSuccess, fetchPersonalError, fetchPersonalNoAuth} from '../reducers/personal';
 import config from "../../config";
 export const checkAuth = () => {
-    return async (dispatch) => {
+    return (dispatch) => {
             dispatch(fetchPersonalPending(true))
-            const checkAuth = await fetch(`${config.apiUrl}/personal/checkAuth`,{
+            const checkAuth = fetch(`${config.apiUrl}/personal/checkAuth`,{
                 method:'GET',
                 credentials: "include",
                 mode: "cors",
             })
             .then(res => res.json())
             .catch(error => {
+                console.log('checkautherror, ', error);
                 dispatch(fetchPersonalError(error));
                 dispatch(fetchPersonalPending(false));
             });

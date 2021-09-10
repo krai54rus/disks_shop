@@ -4,10 +4,11 @@ import {fetchProductsPending, fetchProductsSuccess, fetchProductsError} from './
 
 function fetchProducts() {
     return (dispatch) => {
-        dispatch(fetchProductsPending());
+        dispatch(fetchProductsPending(true));
         fetch(`${config.apiUrl}/disks`)
         .then(res => res.json())
         .then(res => {
+            console.log(res);
             // if(res.error) {
             //     throw(res.error);
             // }
