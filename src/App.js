@@ -3,7 +3,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import Header from './components/Header';
 import Content from './components/Content';
 import Footer from './components/Footer';
-import './App.css';
+import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuto } from './store/actions/autoActions';
 import { getDisks } from './store/actions/disksActions';
@@ -28,11 +28,11 @@ function App() {
       dispatch(checkAuth());
     }
     // Загрузка моделей/марок
-    if (auto.items.length == 0 && !auto.pending) {
+    if (auto.items && auto.items.length == 0 && !auto.pending) {
         dispatch(getAuto());
     }
     // Загрузка дисков
-    if (disks.items.length == 0 && !disks.pending) {
+    if (disks.items && disks.items.length == 0 && !disks.pending) {
         dispatch(getDisks());
     }
   })
