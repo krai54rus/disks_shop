@@ -3,7 +3,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import Header from './components/Header';
 import Content from './components/Content';
 import Footer from './components/Footer';
-import './App.scss';
+import './styles/main.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuto } from './store/actions/autoActions';
 import { getDisks } from './store/actions/disksActions';

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import CartItem from './CartItem';
 function CartSection(props){
     const cart = useSelector(state => state.cart);
     const disks = useSelector(state => state.disks);
@@ -28,10 +29,14 @@ function CartSection(props){
                 </div>
                 <div className="cart-disks__list">
                     {
-                      diskArr.length &&
+                      diskArr.length > 0 &&
                       diskArr.map((cartItem,index) =>
-                        <div key={index}>{cartItem.name} {cartItem.code}</div>
+                      <CartItem key={index} item={cartItem}></CartItem>
                       )
+                    }
+                    {
+                      !diskArr.length &&
+                      <div>Ваша корзина пустая</div>
                     }
                 </div>
             </div>

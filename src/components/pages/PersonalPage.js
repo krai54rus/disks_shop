@@ -21,7 +21,7 @@ function PersonalPage(){
         // if (personal.isAuth === true && personal.login) {
         //     console.log('пихаю данные ', personal);
         //     setUserInfo(personal);
-        //     setAuth(true);
+        //     // setAuth(true);
         // }
         // if (!isAuth) {
         //     console.log('cookie ', cookies);
