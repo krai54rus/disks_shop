@@ -2,19 +2,15 @@ import React, { useEffect, useState } from 'react';
 import PersonalGarageItem from './PersonalGarageItem';
 import { Link } from 'react-router-dom';
 import config from "../../config";
+import { useSelector } from 'react-redux';
 function PersonalGarage(){
     const [garArr, setGarage] = useState([]);
+    const personal = useSelector(state => state.personal);
     useEffect(() => {
-        if (!garArr.length) {
-            const userLogin = document.cookie.match(/login=(.+?)(;|$)/);
-            fetch(`${config.apiUrl}/personal/garage?login=${userLogin[1]}`)
-            .then(res=>res.json())
-            .then(res=>{
-                setGarage(res);
-                return res;
-            });
+        if (!garArr.length && personal.garage && personal.garage.length) {
+            setGarage(personal.garage);
         }
-    });
+    },[personal.garage.length]);
     return(
         <div className="personal-garage">
             <div className="personal-garage__title">

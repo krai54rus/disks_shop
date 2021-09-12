@@ -15,15 +15,16 @@ export const getCart = () => {
             .catch(error => {
                 dispatch(fetchCartError(error));
             });
-            console.log('getCart ',getCart);
             dispatch(fetchCartSuccess(getCart));
             dispatch(fetchCartPending(false));
         // } catch (e) {
-        //     dispatch(fetchDISKSError(true))
-        //     dispatch(fetchDISKSPending(false))
-        //     setTimeout(()=> {
-        //         dispatch(fetchDISKSError(false))
-        //     }, 2000)
+        //     console.log('e',e);
+        //     dispatch(fetchCartSuccess({}));
+        //     dispatch(fetchCartError(e));
+        //     dispatch(fetchCartPending(false));
+        //     // setTimeout(()=> {
+        //     //     dispatch(fetchDISKSError(false))
+        //     // }, 2000)
         // }
 
     }

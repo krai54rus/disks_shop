@@ -1,25 +1,36 @@
-let auto = {
+const auto = {
 	pending: false,
 	items: [],
 	error: false,
 };
 
-let disks = {
+const disks = {
 	pending: false,
 	items: [],
 	error: false,
 };
 
-let cart = {
+const cart = {
 	pending: false,
 	items: [],
 	error: false,
+};
+
+const personal = {
+	pending: false,
+	isAuth: '',
+	user: {},
+	disks:[],
+	garage: [],
+	error: false,
+	errorText: '',
 };
 
 const initialState = {
 	auto,
 	disks,
-	cart
+	cart,
+	personal
 };
 
 export default initialState;

@@ -6,7 +6,7 @@ const FETCH_CART_ERROR = 'FETCH_CART_ERROR';
 const cart = function(store = initialState.cart ,action){
     switch(action.type){
         case FETCH_CART_SUCCESS:
-            return { ...store, items: action.payload };
+            return { ...store, items: action.payload.prods };
         case FETCH_CART_PENDING:
             return { ...store, pending: action.payload };
         case FETCH_CART_ERROR:

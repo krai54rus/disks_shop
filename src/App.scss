@@ -118,7 +118,7 @@ a{
     background-color: #00000090;
     color: white;
     padding: 20px;
-    box-shadow: 0px 20px 21px 0px rgb(33,33,33,0.24);
+    box-shadow: 0px 20px 21px 0px rgba(33,33,33,0.24);
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -978,6 +978,7 @@ a{
   border: 1px solid #D8E1E4;
   border-radius: 7px;
   margin-right: 10px;
+  min-width: 310px;
 }
 .personal-right{
   border: 1px solid #D8E1E4;
@@ -987,7 +988,7 @@ a{
   align-items: flex-start;
   flex-direction: column;
   width: 100%;
-  padding: 0px 15px;
+  padding: 0px 15px 15px 15px;
 }
 .personal-favourite{
   max-width: 1060px;
@@ -1149,7 +1150,8 @@ a{
 .info__data_list_item{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
   font-size: 18px;
   margin: 5px 0px;
 }
