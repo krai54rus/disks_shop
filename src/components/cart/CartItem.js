@@ -24,27 +24,36 @@ function CartItem(props){
     return (
         <div className="cart-item">
             <div className="cart-item__card">
-                <div className="item-card__img">
+                <div className="cart-item__card__img">
                     <img src={`./img/${props.item.img}`} alt="" />
                 </div>
-                <div className="item-card__info">
-                    <div className="item-card__info-name">
+                <div className="cart-item__card__info">
+                    <div className="cart-item__card__info-name">
                         <span>{props.item.name}</span>
                     </div>
-                    <div className="item-card__info-name">
-                        <span>ET {props.item.ET}</span>
-                        <span>DIA {props.item.DIA}</span>
-                        <span>Диаметр {props.item.size}</span>
+                    <div className="cart-item__card__info-prop__list">
+                        <div className="info-prop__item">
+                            <span className="info-prop__item-title">ET</span>
+                            <span>{props.item.ET}</span>
+                        </div>
+                        <div className="info-prop__item">
+                            <span className="info-prop__item-title">DIA</span>
+                            <span>{props.item.DIA}</span>
+                        </div>
+                        <div className="info-prop__item">
+                            <span className="info-prop__item-title">Диаметр</span>
+                            <span>{props.item.size}</span>
+                        </div>
                     </div>
                 </div>
             </div>
             <div className="cart-item__price">
                 <div>
-                    <span>{props.item.price}</span>
+                    <span>{props.item.price} руб.</span>
                 </div>
             </div>
             <div className="cart-item__count">
-                <span>4</span>
+                <span>4 шт.</span>
             </div>
         </div>
     );

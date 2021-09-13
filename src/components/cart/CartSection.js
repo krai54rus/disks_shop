@@ -24,22 +24,21 @@ function CartSection(props){
     })
     return (
         <div className="cart-section">
-                <div className="cart-disks__title">
-                    <h1 className="cart-disks__title-text">Корзина</h1>
-                </div>
-                <div className="cart-disks__list">
-                    {
-                      diskArr.length > 0 &&
-                      diskArr.map((cartItem,index) =>
-                      <CartItem key={index} item={cartItem}></CartItem>
-                      )
-                    }
-                    {
-                      !diskArr.length &&
-                      <div>Ваша корзина пустая</div>
-                    }
-                </div>
+            <div className="cart-disks__title">
+                <h1 className="cart-disks__title-text">Корзина</h1>
             </div>
+            
+                {
+                  diskArr.length > 0 ?
+                  <div className="cart-disks__list">
+                    diskArr.map((cartItem,index) =>
+                    <CartItem key={index} item={cartItem}></CartItem>
+                    )
+                  </div>
+                  :
+                  <div>Ваша корзина пустая</div>
+                }
+        </div>
     );
 }
 export default CartSection;
