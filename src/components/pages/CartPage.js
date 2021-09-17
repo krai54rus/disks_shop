@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import CartSection from '../cart/CartSection';
 function CartPage(){
@@ -28,7 +28,7 @@ function CartPage(){
             
             {
                   diskArr.length > 0 ?
-                  <CartSection></CartSection>
+                  <CartSection disks={diskArr}></CartSection>
                   :
                   <div>Ваша корзина пустая</div>
                 }

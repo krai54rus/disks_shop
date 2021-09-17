@@ -47,13 +47,20 @@ function CartItem(props){
                     </div>
                 </div>
             </div>
-            <div className="cart-item__price">
-                <div>
-                    <span>{props.item.price} руб.</span>
+            <div className="cart-item__counter">
+                <div className="cart-item__price">
+                    <div>
+                        <span>{props.item.price} руб.</span>
+                    </div>
                 </div>
-            </div>
-            <div className="cart-item__count">
-                <span>4 шт.</span>
+                <div className="cart-item__changer">
+                    <div className="cart-item__changer-item count-item minus-count">-</div>
+                    <div className="cart-item__changer-item number">4</div>
+                    <div className="cart-item__changer-item count-item plus-count">+</div>
+                </div>
+                <div className="cart-item__total-price">
+                    <span>{props.item.price * 4} руб.</span>
+                </div>
             </div>
         </div>
     );

@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import CartItem from './CartItem';
-import CartItemList from './CartItemList';
-import CartDelivery from './CartDelivery';
-import CartPersonal from './CartPersonal';
-function CartSection(props){
+function CartDelivery(props){
     // const cart = useSelector(state => state.cart);
     // const disks = useSelector(state => state.disks);
     // const [diskArr,setDisks] = useState([]);
@@ -22,25 +19,22 @@ function CartSection(props){
     //       setDisks(allDisks);
     //     });
     //   }
-      // console.log('cart',cart);
-      // console.log('disks',disks);
+    //   // console.log('cart',cart);
+    //   // console.log('disks',disks);
     // })
     return (
-        <div className="cart-section">
-            <div className="cart-section__title">
-                <h1 className="cart-section__title-text">Корзина</h1>
-            </div>
-                {
-                  props.disks.length > 0 ?
-                  <div className="cart-section__content">
-                    <CartItemList disks={props.disks} />
-                    <CartDelivery />
-                    <CartPersonal />
-                  </div>
-                  :
-                  <div className="cart-section__no-content">Ваша корзина пустая</div>
-                }
-        </div>
+        <div className="cart-disks__list">
+        {
+          props.disks.length > 0 ?
+          
+          props.disks.map((cartItem,index) =>
+            <CartItem key={index} item={cartItem}></CartItem>
+            )
+          
+          :
+          <div>Ваша корзина пустая</div>
+        }
+    </div>
     );
 }
-export default CartSection;
+export default CartDelivery;
