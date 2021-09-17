@@ -4,6 +4,7 @@ import CartItem from './CartItem';
 import CartItemList from './CartItemList';
 import CartDelivery from './CartDelivery';
 import CartPersonal from './CartPersonal';
+import CartTotal from './CartTotal';
 function CartSection(props){
     // const cart = useSelector(state => state.cart);
     // const disks = useSelector(state => state.disks);
@@ -32,10 +33,15 @@ function CartSection(props){
             </div>
                 {
                   props.disks.length > 0 ?
-                  <div className="cart-section__content">
-                    <CartItemList disks={props.disks} />
-                    <CartDelivery />
-                    <CartPersonal />
+                  <div className="cart-section__wrapper">
+                    <div className="cart-section__content">
+                      <CartItemList disks={props.disks} />
+                      <CartDelivery />
+                      <CartPersonal />
+                    </div>
+                    <div className="cart-section__total">
+                      <CartTotal />
+                    </div>
                   </div>
                   :
                   <div className="cart-section__no-content">Ваша корзина пустая</div>
