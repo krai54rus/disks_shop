@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import CartDeliveryInfo from './delivery/CartDeliveryInfo';
-import CartPickupInfo from './delivery/CartPickupInfo';
-function CartDelivery(props){
+function CartDeliveryInfo(props){
     // const cart = useSelector(state => state.cart);
     // const disks = useSelector(state => state.disks);
     // const [diskArr,setDisks] = useState([]);
@@ -24,23 +22,11 @@ function CartDelivery(props){
     //   // console.log('disks',disks);
     // })
     return (
-        <div className="cart-delivery">
-            <h2>Доставка / самовывоз</h2>
-            <div className="cart-delivery__wrapper">
-                <div className="cart-delivery__buttons">
-                    <div className="delivery-button">
-                        <span>Доставка</span>
-                    </div>
-                    <div className="delivery-button">
-                        <span>Самовывоз</span>
-                    </div>
-                </div>
-                <div className="cart-delivery__components">
-                    <CartDeliveryInfo></CartDeliveryInfo>
-                    <CartPickupInfo></CartPickupInfo>
-                </div>
+        <div className="cart-delivery-info">
+            <div>
+              <span>Доставка</span>
             </div>
         </div>
     );
 }
-export default CartDelivery;
+export default CartDeliveryInfo;

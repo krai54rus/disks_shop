@@ -25,12 +25,12 @@ function CartPage(){
     return(
         <div className="cart-page">
             <div className="container">
-            
+
             {
                   diskArr.length > 0 ?
                   <CartSection disks={diskArr}></CartSection>
                   :
-                  <div>Ваша корзина пустая</div>
+                  <div> <h1>Ваша корзина пустая</h1> </div>
                 }
             </div>
         </div>

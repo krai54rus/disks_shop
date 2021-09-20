@@ -74,6 +74,42 @@
         }
     }
 }
+.cart-delivery {
+    &__wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__buttons{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        .delivery-button {
+            border: 1px solid $main-color;
+            padding: 10px 15px;
+            border-radius: 7px;
+            width: 150px;
+            text-align: center;
+            cursor: pointer;
+            margin-right: 30px;
+            font-size: 20px;
+            transition: 0.5s;
+            &:hover{
+                color: white;
+                background-color: $main-color;
+            }
+        }
+        .active-delivery-button{
+            color: white;
+            background-color: $main-color;
+        }
+    }
+    &__components{
+
+    }
+}
 .info-prop__item-title {
     font-weight: 500;
     margin-right: 7px;

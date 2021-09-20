@@ -32,7 +32,7 @@ function CartSection(props){
                 <h1 className="cart-section__title-text">Корзина</h1>
             </div>
                 {
-                  props.disks.length > 0 ?
+                  props.disks.length > 0 &&
                   <div className="cart-section__wrapper">
                     <div className="cart-section__content">
                       <CartItemList disks={props.disks} />
@@ -43,8 +43,6 @@ function CartSection(props){
                       <CartTotal />
                     </div>
                   </div>
-                  :
-                  <div className="cart-section__no-content">Ваша корзина пустая</div>
                 }
         </div>
     );

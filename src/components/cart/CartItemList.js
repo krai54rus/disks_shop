@@ -25,14 +25,10 @@ function CartDelivery(props){
     return (
         <div className="cart-disks__list">
         {
-          props.disks.length > 0 ?
-          
+          props.disks.length > 0 &&
           props.disks.map((cartItem,index) =>
             <CartItem key={index} item={cartItem}></CartItem>
             )
-          
-          :
-          <div>Ваша корзина пустая</div>
         }
     </div>
     );
