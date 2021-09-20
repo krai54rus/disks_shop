@@ -6,6 +6,10 @@ function CartDelivery(props){
     // const cart = useSelector(state => state.cart);
     // const disks = useSelector(state => state.disks);
     // const [diskArr,setDisks] = useState([]);
+    const [delType, setDelType] = useState('delivery');
+    function setDeliveryType(type) {
+        setDelType(type);
+    }
     // useEffect(()=>{
     //   if (!cart.pending && cart.items && cart.items.length && disks.items && disks.items.length && !diskArr.length) {
     //     const allDisks = [];
@@ -28,16 +32,22 @@ function CartDelivery(props){
             <h2>Доставка / самовывоз</h2>
             <div className="cart-delivery__wrapper">
                 <div className="cart-delivery__buttons">
-                    <div className="delivery-button">
+                      <div className={`delivery-button ${delType === 'delivery' ? 'active-delivery-button' : ''}`} onClick={()=>setDeliveryType('delivery')}>
                         <span>Доставка</span>
                     </div>
-                    <div className="delivery-button">
+                    <div className={`delivery-button ${delType === 'pickup' ? 'active-delivery-button' : ''}`}  onClick={()=>setDeliveryType('pickup')}>
                         <span>Самовывоз</span>
                     </div>
                 </div>
                 <div className="cart-delivery__components">
-                    <CartDeliveryInfo></CartDeliveryInfo>
-                    <CartPickupInfo></CartPickupInfo>
+                    {
+                        delType === 'delivery' &&
+                        <CartDeliveryInfo></CartDeliveryInfo>
+                    }
+                    {
+                        delType === 'pickup' &&
+                        <CartPickupInfo></CartPickupInfo>
+                    }
                 </div>
             </div>
         </div>
