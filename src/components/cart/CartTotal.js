@@ -23,12 +23,14 @@ function CartTotal(props){
     // })
     return (
         <div className="cart-total">
-            <div className="cart-total__button">
-                <div className="cart-button button">Оформить заказ</div>
-            </div>
-            <div className="cart-total__price">
-                <div className="cart-price">
-                    <span>15470 руб.</span>
+            <div className="cart-total__wrapper">
+                <div className="cart-total__button">
+                    <div className="cart-button button">Оформить заказ</div>
+                </div>
+                <div className="cart-total__price">
+                    <div className="cart-price">
+                        <span>15470 руб.</span>
+                    </div>
                 </div>
             </div>
         </div>
