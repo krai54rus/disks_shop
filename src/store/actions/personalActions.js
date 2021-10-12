@@ -2,9 +2,9 @@
 import {fetchPersonalPending, fetchPersonalSuccess, fetchPersonalError, fetchPersonalNoAuth} from '../reducers/personal';
 import config from "../../config";
 export const checkAuth = () => {
-    return (dispatch) => {
+    return async (dispatch) => {
             dispatch(fetchPersonalPending(true))
-            const checkAuth = fetch(`${config.apiUrl}/personal/checkAuth`,{
+            const checkAuth = await fetch(`${config.apiUrl}/personal/checkAuth`,{
                 method:'GET',
                 credentials: "include",
                 mode: "cors",
@@ -15,7 +15,7 @@ export const checkAuth = () => {
                 dispatch(fetchPersonalError(error));
                 dispatch(fetchPersonalPending(false));
             });
-
+            console.log('redux checkAuth', checkAuth);
             if (checkAuth && checkAuth.status == 'OK') {
                 console.log('checkAuth ', checkAuth);
                 document.cookie = `isAuth=${true}`;
